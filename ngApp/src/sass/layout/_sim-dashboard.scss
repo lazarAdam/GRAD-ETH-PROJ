@@ -1,0 +1,817 @@
+.sim-dash {
+  // simple dash parent flex container
+
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100%;
+  font-size: var(---font-size-mid);
+
+
+  @include responsive(tab-land) {
+
+    font-size: var(---mb-font-size-mid);
+  }
+
+  @include responsive(tab-port) {
+
+  }
+
+  @include responsive(phone) {
+
+    flex-direction: column;
+  }
+
+
+  /**
+    Main navigation of the simple dashboard. Make 10% of the width of the container
+   */
+
+  &__nav {
+    flex: 0 1 10%;
+
+
+    display: flex;
+    z-index: 0;
+    flex-wrap: wrap;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    animation: dashNavAnim .5s ease;
+
+    box-shadow: 0px 0px 0px 0px black;
+
+    background: var(--gradient-2);
+
+
+    @include responsive(tab-land) {
+      flex: 0 1 20%;
+    }
+
+
+    @include responsive(phone) {
+      flex: 0 1 auto;
+      flex-direction: column;
+      border-radius: 0;
+      animation: moveInTop 1s ease;
+      clip-path: ellipse(90% 100% at 50% 0%);
+    }
+
+
+    &__header {
+      flex: 0 0 100%;
+      align-self: start;
+      text-align: center;
+      display: flex;
+      padding: 2rem 1rem;
+
+      animation: moveInLeft 1s ease .5s backwards;
+
+      @include responsive(phone) {
+        flex: 0 1 auto;
+        align-self: center;
+
+        padding: 2rem 10rem;
+
+        animation: moveInTop .5s ease .5s backwards;
+     
+      }
+
+      & > svg {
+        width: 4rem;
+        height: 4rem;
+        fill: var(--color-primary-dark-2);
+        pointer-events: none;
+      }
+
+      & > h2 {
+        margin-left: .5rem;
+        margin-bottom: -5px;
+        align-self: flex-end;
+        color: var(--color-primary-dark-2);
+        font-size: var(--default-font-size);
+
+
+        & > span:first-of-type {
+          text-transform: uppercase;
+        }
+      }
+
+    }
+
+    &__controls {
+      flex: 0 0 100%;
+      align-self: stretch;
+
+      @include responsive(phone) {
+        display: flex;
+        justify-content: space-evenly;
+        flex: 0 1 auto;
+        padding: 5rem 0;
+
+      }
+
+      & > .sim-dash__nav__icon {
+
+        margin-bottom: 8rem;
+        width: 100%;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+
+
+        @include responsive(tab-land) {
+          margin-bottom: 15rem;
+        }
+
+        @include responsive(phone) {
+          margin: 0;
+          padding: 0;
+          width: auto;
+          text-align: center;
+
+          & > span:first-child {display: none}
+        }
+
+
+
+
+        & > span:first-child {
+          content: '';
+          width: 100%;
+          height: 55px;
+          top: -11px;
+          left: 100%;
+          background-color: var(--color-Grey-light-2);
+          position: absolute;
+          border-top-left-radius: 50px;
+          border-bottom-left-radius: 50px;
+          pointer-events: none;
+
+          transition: left var(--anim-function-1) .5s;
+          z-index: -1;
+        }
+
+
+        &-active > span:first-child{
+
+          left: 5%;
+        }
+
+        &:hover > span:first-child {
+          left: 5%;
+
+        }
+
+
+        & > svg {
+          width: 30px;
+          height: 30px;
+          fill: var(--color-primary-dark-2);
+          display: inline-block;
+          vertical-align: middle;
+
+          pointer-events: none;
+          transition: fill var(--anim-function-1) .8s;
+
+
+
+          @include responsive(phone) {
+            display: block;
+            width: 100%;
+            margin-bottom: 1rem;
+          }
+        }
+
+        &:hover > svg{
+
+          fill: var(--color-secondery);
+        }
+
+        &-active > svg{
+
+          fill: var(--color-secondery);
+        }
+
+
+        & > .sim-dash__nav__icon-name {
+          display: inline-block;
+          vertical-align: middle;
+          margin-left: .5rem;
+          pointer-events: none;
+          transition: color var(--anim-function-1) .8s;
+
+
+
+          @include responsive(phone) {
+            display: block;
+          }
+        }
+
+        &:hover > .sim-dash__nav__icon-name{
+          color: var(--color-secondery);
+        }
+
+        &-active > .sim-dash__nav__icon-name{
+          color: var(--color-secondery);
+        }
+
+      }
+    }
+
+
+    @keyframes dashNavAnim {
+
+      from {
+        transform: translateX(-100%);
+      }
+
+      to {
+
+        transform: translateX(0);
+      }
+
+    }
+
+  }
+
+  /**
+  General styles of the content container  of the simple dashboard. Make 90% of the width of the flex container
+ */
+
+  &__content {
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    z-index: 1;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    flex: 0 1 90%;
+
+
+    @include responsive(tab-land) {
+      flex: 0 1 80%;
+    }
+
+
+    @include responsive(phone) {
+      flex: 1;
+    }
+  }
+
+  &__content__header {
+
+    font-size: var(--large-font-size);
+
+    margin-left: 4.5rem;
+    margin-top: 3rem;
+    border-bottom: 1px black solid;
+
+    animation: moveInLeft ease 1s;
+
+    @include responsive(tab-port) {
+      margin-top: 8rem;
+    }
+
+    @include responsive(phone) {
+      display: block;
+      text-align: center;
+      border: none;
+      margin-top: 8rem;
+      margin-left: 0;
+    }
+  }
+
+
+  /**
+    styling user-dashboard which uses the content container of the simple dashboard layout
+
+   */
+
+  &__profile {
+
+    //TEMP
+    //display: none;
+
+    margin: 10rem auto;
+
+    animation: fadInFromTop ease 1.5s;
+
+    // card sides, form side and profile side
+    & > div {
+      background: var(--gradient-2);
+    }
+
+    &__entry {
+      padding: 1.5rem 2.5rem;
+
+      & > p:first-child {
+        text-transform: capitalize;
+        font-weight: 700;
+        display: inline-block;
+        color: var(--color-Grey-dark-4);
+      }
+    }
+  }
+
+
+  &__address-book {
+
+
+    @include responsive(large-desktop) {
+      width: 35%;
+    }
+
+
+    margin: 0 auto 7rem auto;
+    width: 45%;
+
+
+    @include responsive(tab-land) {
+      width: 55%;
+    }
+
+    @include responsive(tab-port) {
+      width: 70%;
+    }
+
+    @include responsive(phone) {
+
+      width: 82%;
+    }
+
+    &__add-icon {
+      display: block;
+      border: none;
+      width: 5rem;
+      height: 5rem;
+      margin: 1rem auto;
+      cursor: pointer;
+      background: transparent;
+
+      animation: moveInTop ease 1s;
+
+
+      & > svg {
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        fill: var(--color-Grey-dark-2);
+        transition: ease all 1s;
+      }
+
+      &:hover > svg {
+        transform: translateY(5px);
+      }
+
+      &:hover {
+        & > svg {
+          fill: var(--color-primary-dark-2);
+        }
+      }
+    }
+
+    &__add-form {
+
+      background: var(--gradient-2);
+      padding: 2rem;
+      border-radius: 20px;
+
+
+      & > form {
+        animation: fadInFromTop 1s ease;
+      }
+    }
+
+    &__entry {
+      position: relative;
+      margin-top: 5rem;
+      padding: 2rem;
+      height: auto;
+      border-radius: 20px;
+      background: var(--gradient-2);
+      box-shadow: var(--shadow-light-2);
+      font-size: var(---font-size-mid);
+      outline: 3px transparent solid;
+
+      animation: fadInFromTop ease 1.5s;
+
+
+      &-selected {
+        outline: 3px var(--color-primary-dark-2) solid;
+        //dad
+      }
+
+      & > input {
+        display: none;
+      }
+
+      & > label {
+        display: block;
+        height: 100%;
+        cursor: pointer;
+      }
+
+      & span {
+        display: block;
+        text-transform: capitalize;
+      }
+
+      & span:nth-child(3), span:nth-child(4) {
+        text-transform: uppercase;
+      }
+
+      &__cta {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        font-size: 0;
+        padding: 2rem;
+        border-radius: inherit;
+
+
+        &-btn {
+          width: 50%;
+          height: 100%;
+          display: inline-block;
+          cursor: pointer;
+
+
+        }
+
+        & svg {
+          width: 100%;
+          height: 100%;
+          fill: var(--color-primary);
+          stroke: var(--color-primary);
+          pointer-events: none;
+        }
+
+      }
+
+      & > form {
+        transition: height 1s ease;
+        overflow: hidden;
+      }
+
+      &:hover &__cta, &:active &__cta {
+        //visibility: visible;
+
+      }
+    }
+
+
+  }
+
+
+  .sim-dash__order-entry {
+
+    width: 45%;
+    margin: 5rem auto;
+    padding: 2rem 4rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow-light-2);
+    background: var(--gradient-2);
+
+    animation: moveInTop 1s ease;
+
+    @include responsive(tab-land) {
+
+      width: 75%;
+    }
+
+    @include responsive(tab-port) {
+      width: 90%;
+    }
+
+    @include responsive(phone) {
+      width: 95%;
+      padding: 1rem;
+    }
+
+    &__header {
+
+      position: relative;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+      cursor: pointer;
+
+      // overriding the browser's defaults for the button
+      display: block;
+      border: none;
+      background: transparent;
+      width: 100%;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+
+      & > h2 {
+        display: inline-block;
+        width: 49%;
+        text-transform: capitalize;
+        font-weight: 400;
+      }
+
+      & > h2:first-child {
+        text-align: start;
+      }
+
+      & > h2:nth-child(2) {
+        text-align: end;
+      }
+
+      &-icon {
+        width: 25px;
+        height: 25px;
+        margin: 0 auto;
+        text-align: center;
+
+        transition: transform .3s ease;
+
+        transform: rotate(0);
+
+        &-flipped {
+          transform: rotate(180deg);
+        }
+
+        & > svg {
+          width: 100%;
+          height: 100%;
+
+        }
+
+      }
+    }
+
+
+    &__details-group {
+
+      display: flex;
+      justify-content: center;
+
+      @include responsive(phone) {
+        flex-direction: column;
+      }
+
+      & > :first-child {
+        margin-right: 5rem;
+
+        @include responsive(phone) {
+          margin-right: 0;
+        }
+      }
+
+      & > div {
+        margin-bottom: 3.5rem;
+        background: rgba(0, 0, 0, 0.19);
+        border-radius: 10px;
+        padding: 2.5rem;
+
+      }
+
+
+      & > div > h2 {
+        margin-bottom: 2rem;
+        text-transform: capitalize;
+        font-weight: 400;
+        display: inline-block;
+        border-bottom: solid 1px black;
+
+      }
+    }
+
+    &__details {
+      overflow: hidden;
+
+      // set the transition for collapsing and expanding, controlled by JS
+      transition: height 1s ease;
+
+      & > div:nth-of-type(1), div:nth-of-type(3) {
+        margin-bottom: 3.5rem;
+        background: rgba(0, 0, 0, 0.19);
+        border-radius: 10px;
+        padding: 2rem;
+
+
+        @include responsive(phone) {
+          padding: .5rem;
+
+        }
+      }
+
+      & > div > h2 {
+        text-align: center;
+        text-transform: capitalize;
+        font-weight: 400;
+
+        display: block;
+        width: 25%;
+        margin: 2rem auto;
+        border-bottom: solid 1px black;
+      }
+
+
+      &__items {
+
+        &__item {
+          display: flex;
+          margin-bottom: 3.5rem;
+
+          &__thumbnail {
+            flex: 0 1 25%;
+          }
+
+          &__desc {
+            flex: 1;
+            margin-left: 3.5rem;
+
+            & > p {
+              margin-bottom: .5rem;
+              font-size: var(--default-font-size);
+              text-transform: capitalize;
+            }
+
+
+            & > div {
+              display: inline-block;
+              text-transform: capitalize;
+            }
+
+            & > div:first-of-type {
+
+              margin-right: 1.5rem;
+
+            }
+
+          }
+        }
+      }
+
+      &__shipping {
+
+        flex: 0 1 50%;
+        text-align: center;
+        text-transform: capitalize;
+
+        @include responsive(phone) {
+          flex: 1;
+
+        }
+
+        & > :not(p:last-of-type) {
+          padding-bottom: .5rem;
+        }
+
+        & > p:nth-of-type(3) span:last-of-type {
+          text-transform: uppercase;
+        }
+
+        & > p:last-of-type {
+          text-transform: uppercase;
+        }
+
+
+      }
+
+      &__payment {
+
+        flex: 0 1 calc(50% - 2rem);
+        text-transform: capitalize;
+        text-align: center;
+
+        @include responsive(phone) {
+          flex: 1
+        }
+
+        & > p > span:last-of-type {
+          margin-left: 2rem;
+
+        }
+
+        & > :not(p:last-of-type) {
+          padding-bottom: .5rem;
+        }
+
+        & > p:first-of-type > span:nth-of-type(2) {
+
+          text-transform: uppercase;
+        }
+
+        & > p:last-of-type {
+          font-size: var(--default-font-size);
+        }
+
+      }
+
+      &__delivery-status {
+
+        @include responsive(phone) {
+          text-align: center;
+        }
+
+        & > p {
+          text-transform: capitalize;
+        }
+
+        & > p:first-of-type {
+          margin-bottom: 1.5rem;
+        }
+
+        & > p:first-of-type > span:last-of-type {
+          text-transform: uppercase;
+          margin-left: 2rem;
+
+          @include responsive(phone) {
+            display: block;
+            margin-left: 0;
+            margin-top: 1rem;
+          }
+        }
+
+        & > p:last-of-type > span:last-of-type {
+          text-transform: uppercase;
+          margin-left: 2rem;
+
+          @include responsive(phone) {
+            display: block;
+            margin-left: 0;
+            margin-top: 1rem;
+          }
+        }
+
+      }
+    }
+
+  }
+
+  .sim-dash__support {
+    //TEMP
+    //display: none;
+
+    width: 45%;
+    margin: 5rem auto;
+    border-radius: 20px;
+    background: var(--gradient-2);
+    animation: moveInTop 1s ease;
+
+    @include responsive(tab-land) {
+      width: 55%;
+    }
+
+    @include responsive(tab-port) {
+      width: 65%;
+    }
+
+    @include responsive(phone) {
+      width: 98%;
+    }
+
+    &__header {
+
+      width: 10%;
+      height: 6rem;
+      margin: 2rem auto;
+      padding-top: 1rem;
+
+      & > svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+  }
+
+
+  .sim-dash__order-entry-empty,
+  .sim-dash__address-book-empty {
+
+    width: 50%;
+    height: 50%;
+    margin: 10rem auto;
+    text-align: center;
+    color: var(--color-Grey-dark-3);
+
+    & > svg {
+      width: 100%;
+      height: 50%;
+      fill: var(--color-Grey-dark-3);
+
+      animation: moveInTop 1s ease;
+    }
+
+    & > h2 {
+
+      margin-top: 3rem;
+
+      animation: moveInTop 1s ease .3s backwards;
+    }
+
+  }
+}
+

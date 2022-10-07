@@ -1,0 +1,400 @@
+.btn-scalable {
+
+  @include btnBasic;
+
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black, .2);
+  }
+
+  &:active,
+  &:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+  }
+
+
+  &--colorful-dark {
+    background-color: $background-color-light;
+    color: var(--color-primary);
+
+  }
+
+  &--colorful-dark::after {
+    background-color: $background-color-light;
+  }
+
+  &--colorful {
+    background: linear-gradient(to bottom,
+            rgba(196, 174, 139, 1) 40%,
+            rgba(164, 150, 134, 1)
+    );
+
+    color: var(--color-primary-dark-2);
+  }
+
+  &--colorful::after {
+    background: linear-gradient(to bottom,
+            rgba(196, 174, 139, 1) 40%,
+            rgba(164, 150, 134, 1)
+    );
+  }
+
+  &--grey-light {
+    background-color: var(--color-Grey-dark-2);
+    color: var(--color-Grey-light-2);
+
+  }
+
+  &--grey-light::after {
+    background-color: inherit;
+  }
+
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 20rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+
+  }
+
+
+  &:hover::after {
+
+    transform: scalex(1.4) scaleY(1.6);
+    opacity: 0;
+  }
+
+  &--animated {
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards;
+  }
+
+}
+
+
+.btn-fluid {
+  position: relative;
+
+  &-front,
+  &-back {
+    @include btnBasic;
+    color: black;
+
+  }
+
+  &-front {
+    background: white;
+    box-shadow: 0 1rem 2rem rgba($color-black, .2);
+
+    @include responsive(tab-land) {
+      color: white;
+      background: linear-gradient(
+                      to left,
+                      rgba($color-primary-dark, 1),
+                      rgba($color-primary, 1),
+                      rgba($color-primary-light, 1));
+    }
+
+
+    // When the front btn is hovered select the back btn and set the circle size
+    // technically the back button comes on top since it comes last in the doc and both back and front
+    // have the same z-index. But by  setting the clip-path on the back btn to 0s, this will hide all its content
+    // and then when the clip path is set to  circle(120% at 0% 0%); the back btn will be shown along with its content
+    &:hover ~ .btn-fluid-back {
+
+
+      clip-path: circle(100% at 5% 50%);
+      color: white;
+    }
+  }
+
+  &-back {
+    background: linear-gradient(
+                    to left,
+                    rgba($color-primary-dark, 1),
+                    rgba($color-primary, 1),
+                    rgba($color-primary-light, 1));
+    clip-path: circle(0% at 3% 15%);
+    position: absolute !important;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all .7s ease-in-out !important;
+
+    // keep the clip path value the same while the back btn is hovered.
+    &:hover {
+      clip-path: circle(100% at 5% 50%);
+      color: white;
+
+    }
+
+    @include responsive(tab-land) {
+
+      // hide the back button on none hover displays
+      display: none !important;
+    }
+
+  }
+
+  &--animated {
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards;
+  }
+
+}
+
+
+/**
+ This version will use :before on the switch-btn container. so it will act as an overlay on top of the buttons
+ with position right ,background, border-radius, and clip-path properties. the classes .switch-btn--left-state and
+ .switch-btn--right-state contain the styles of each the state of the ::before overlay going form left to right or
+  or right to left using right position while changing border radius and clip path porpoises.
+  Border-radius, clip-path and left properties will be animated check the transition def. JS is used to control which
+  class is active
+ */
+.switch-btn-t1 {
+  @include clearfix;
+  position: relative;
+  width: 23rem;
+  background: rgba($background-color-light, 1);
+  padding: .4rem;
+  border-radius: 20rem;
+
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%; // the width is half size of the entire container which matches the size of &__left, and &__right
+    height: 100%;
+    background: transparent;
+    // starting state of the animated polygon a square with 4 points. Note in order to animate,
+    // the number of points must be the same when transitioning form one state to another
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 0 100%);
+    transition: right .8s ease, border-radius .8s linear, clip-path .4s linear;
+    z-index: 0;
+  }
+
+
+  &__left,
+  &__right {
+    z-index: 1;
+    position: relative;
+    display: inline-block;
+    appearance: none;
+    padding: 1rem;
+    border: none;
+    width: 50%; // half the size of the container
+    color: var(--color-Grey-light-2);
+    transition: opacity .5s linear;
+    background: transparent;
+    opacity: 30%;
+    cursor: pointer;
+  }
+
+  &__left {
+    float: left;
+    border-bottom-left-radius: 20rem;
+    border-top-left-radius: 20rem;
+  }
+
+  &__right {
+    float: right;
+    border-bottom-right-radius: 20rem;
+    border-top-right-radius: 20rem;
+  }
+
+  &-active {
+    opacity: 1;
+  }
+}
+
+/**
+  classes to be added and removed using JS, the  ::before is switched form the left to right or
+  vise versa which will define the styles for the border-radius, clip path and position
+ */
+.switch-btn--left-state {
+
+  &::before {
+    background: linear-gradient(to bottom,
+            rgba(196, 174, 139, 1) 40%,
+            rgba(164, 150, 134, 1)
+    );
+    right: 50%; // pushed to the left corner
+    border-bottom-left-radius: 20rem;
+    border-top-left-radius: 20rem;
+    //static polygon
+    //clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+
+    //animated polygon
+    clip-path: polygon(0 0, 100% 0, 90% 50%, 80% 100%, 0 100%);
+  }
+
+
+}
+
+.switch-btn--right-state {
+
+  &::before {
+    background: linear-gradient(to bottom,
+            rgba(196, 174, 139, 1) 40%,
+            rgba(164, 150, 134, 1)
+    );
+    right: 0; // pushed back to the left corner
+    border-bottom-right-radius: 20rem;
+    border-top-right-radius: 20rem;
+
+    //static polygon
+    //clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%, 5% 50%);
+
+    // animated polygon
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%, 10% 50%);
+  }
+}
+
+
+/**
+ This version will use :before on each of the left and right buttons. So each button will control the position of it's
+ own ::before animating this is easy, by switching the left and right % form 0 to 100% on each button separately.
+ For example when the ::before of the right button is set to 100% that means it is pushed 100% of it's size from the right
+ which will completely hide it. This due the fact the ::before element is a child of the right button and it is only
+ visible within the boundaries of it's parent. The same thing goes for the left button. Also a custom classes will be
+  added using JS to move the ::before on each button
+ */
+.switch-btn-t2 {
+  @include clearfix;
+
+  position: relative;
+  width: 23rem;
+  padding: .4rem;
+  border-radius: 20rem;
+  background: rgba($background-color-light, 1);
+
+  &__left,
+  &__right {
+    position: relative;
+    z-index: 1;
+    appearance: none;
+    //font-size: $default-font-size;
+    width: 50%;
+    padding: 1rem;
+    border: none;
+    background: transparent;
+    color: white;
+    transition: opacity .2s linear;
+    opacity: 50%;
+    cursor: pointer;
+  }
+
+  &__left {
+
+    float: left;
+    border-bottom-left-radius: 20rem;
+    border-top-left-radius: 20rem;
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+
+
+    &::before {
+      content: '';
+      position: absolute;
+      // pushed from the left which will hide it completely
+      left: 100%;
+      top: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      border-bottom-left-radius: 20rem;
+      border-top-left-radius: 20rem;
+      background: linear-gradient(to bottom,
+              rgba(196, 174, 139, 1) 40%,
+              rgba(164, 150, 134, 1)
+      );
+      transition: left .5s ease-in-out;
+    }
+
+
+    // custom class to be added by JS that reveals the active side
+    // and increase opacity
+    &-active {
+      opacity: 1;
+
+      &::before {
+        left: 0;
+      }
+    }
+  }
+
+  &__right {
+    float: right;
+    border-bottom-right-radius: 20rem;
+    border-top-right-radius: 20rem;
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%, 5% 50%);
+
+    &::before {
+      content: '';
+      // pushed from the right which will hide it completely
+      position: absolute;
+      right: 100%;
+      top: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      border-bottom-right-radius: 20rem;
+      border-top-right-radius: 20rem;
+      background: linear-gradient(to bottom,
+              rgba(196, 174, 139, 1) 40%,
+              rgba(164, 150, 134, 1)
+      );
+      transition: right .5s ease-in-out;
+    }
+
+    // custom class to be added by JS that reveals the active side and increases opacity
+    &-active {
+      opacity: 1;
+
+      &::before {
+        right: 0;
+      }
+    }
+  }
+}
+
+
+.btn-xsm {
+  font-size: 1rem;
+  padding: .8rem 2.5rem;
+}
+
+.btn-sm {
+  font-size: 1rem;
+}
+
+.bnt-md {
+  font-size: 1.5rem;
+}
+
+.btn-lg {
+  font-size: 1.8rem;
+}
+
+
+.btn-loader-elm{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 8rem;
+  visibility: hidden;
+  transform: translate(-50%,-50%);
+}
+
+

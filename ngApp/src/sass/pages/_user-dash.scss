@@ -1,0 +1,23 @@
+.user-dash-sec{
+  background: var(--color-Grey-light-2);
+  height: 100vh;
+  //padding-top:var(--nav-marg-top);
+
+
+  // the case where the content doesn't fit in the viewport height (phones on landscape mode where width > height)
+  // and the width of the screen is up to 1200px
+  @media only screen
+  and (max-width: 75em)
+  and (orientation: landscape)
+  and (max-height: 37.5em) {
+
+    // set the height of the container according the the children content
+      height: auto;
+  }
+
+
+  //@include responsive(phone){
+  //  min-height: 100vh;
+  //  //height: auto;
+  //}
+}

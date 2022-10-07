@@ -1,0 +1,305 @@
+.side-nav {
+  position: fixed;
+  top: 0;
+  right: calc((100vw - 65vw) * -1); // will result into -35%
+  z-index: 101;
+  width: 35%;
+  min-height: 100vh;
+  height: 0;
+  padding: 5rem 2rem;
+  background: rgba($background-color, .97);
+  visibility: hidden;
+  //transition: all 1s ease;
+  transition:  right 1s var(--anim-function-1),visibility 1s ease;
+
+  @include responsive(tab-land) {
+    right: -50%;
+    width: 50%;
+    height: 85rem;
+    min-height: 0;
+    overflow: scroll;
+  }
+
+  @include responsive(tab-port) {
+    right: -60%;
+    width: 60%;
+
+  }
+  @include responsive(phone) {
+    right: -100%;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  //
+  //@media screen and (orientation: landscape) {
+  //
+  //  min-height: 100vh;
+  //  height: 0;
+  //}
+
+
+  &__close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    height: 5rem;
+    width: 5rem;
+    cursor: pointer;
+    z-index: 120;
+
+  }
+
+  &__close-icon {
+    position: relative;
+    //when the page loads hide the entire icon including the :before and :after that makes the X
+    visibility: hidden;
+    top: 50%;
+    transition: all .7s cubic-bezier(0.83, 0, 0.17, 1) .5s;
+    z-index: -1;
+    pointer-events: none;
+    //
+    &,
+    &:before,
+    &:after {
+      width: 5rem;
+      height: 6px;
+      background-color: var( --color-secondery);
+      display: inline-block;
+
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      // set the opacity to 0 so we can include fading transition when it is set back to 1 in the code at the bottom
+      opacity: 0;
+      transition: inherit;
+    }
+
+
+    // class to display the close icon
+    &-visible {
+
+      &:before {
+        opacity: 1;
+        visibility: visible;
+        //top: 0;
+        transform: rotate(-135deg); // rotate one bar negative direction
+      }
+
+      &:after {
+        opacity: 1;
+        visibility: visible;
+        //top: 0;
+        transform: rotate(135deg); // rotate the other bar in the positive direction
+      }
+
+    }
+  }
+
+
+  &__content {
+    display: flex;
+    justify-content: stretch;
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: 100%;
+    margin-top: 2.5rem;
+
+
+    @include responsive(tab-port) {
+
+      font-size: $default-font-size;
+      margin-top: 2rem;
+    }
+    @include responsive(phone) {
+
+      align-content: space-evenly;
+    }
+  }
+
+  &__forms {
+    border-radius: 8px;
+    flex: 0 0 100%;
+  }
+
+  &__form-switch {
+    flex: 0 0 100%;
+    //align-self: end;
+    display: flex;
+    justify-content: center;
+  }
+
+  // brings back the side nav to the visible viewport
+  &-visible {
+    right: 0 !important;
+  }
+
+}
+
+
+
+.side-nav-mini {
+
+  /**
+      we are only setting the new values and overriding ones that were set in the side-nav above
+      some of the values from side-nav will apply because both classes side-nav and side-nav-mini will be present
+   */
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  right: calc((100vw - 90vw) * -1); // will result into -10%
+  width: 10%;
+  padding:0;
+  color: var(--color-Grey-light-1);
+
+
+  @include responsive(large-desktop){
+    align-items: center;
+  }
+
+  @include responsive(tab-land) {
+    right: -15%;
+    width: 15%;
+    min-height: 0; // unset the min-height value which was previously set in the side nav
+
+    // set the height of the mini-nav to auto( we want the content to control the height) for screens up to 1200px
+    height: auto;
+
+    display: block;
+  }
+
+    /**
+      on screens up to 600px set the height of side-nav-mini back to 100vh (minimum is the entire screen)
+      and the width to auto which will be decided by the browser (mostly content driven)
+     */
+  @include responsive(phone) {
+    right: -100%;
+    width: auto;
+    min-height: 100vh;
+  }
+
+  /**
+    special case: on phone screes of a height up to 600px and on landscape mode (width > height)
+    unset the height and set the min-height which will allows for overflow scrolling
+   */
+  @media only screen  and (orientation: landscape) and (max-height: 37.5em){
+    height: 0;
+    min-height: 100vh;
+  }
+
+  &__content {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 3rem;
+    margin: 0 1rem 0 1rem;
+
+    @include responsive(large-desktop){
+      margin: 7rem 1rem 0 1rem;
+    }
+
+    @include responsive(tab-land) {
+      margin: 7rem 1rem 0 1rem;
+
+
+    }
+
+    @include responsive(tab-port) {
+
+      font-size: var(--default-font-size);
+
+    }
+    @include responsive(phone) {
+
+      margin-top: 15rem;
+    }
+
+
+    & > .side-nav__close-btn {
+
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+
+    }
+
+    & > .side-nav-mini__welcome {
+
+      width: 100%;
+      padding-bottom: 1rem;
+      border-bottom: 1px rgba(153, 153, 153, .3) solid;
+      text-align: center;
+
+
+      & > img {
+        margin-bottom: 3rem;
+        filter: drop-shadow(15px 10px 6px rgba(0, 0, 0, 0.8));
+
+      }
+
+      & > h3:last-child {
+
+        text-transform: capitalize;
+      }
+    }
+
+
+    & > .side-nav-mini__icon-block {
+      cursor: pointer;
+      text-align: center;
+      color: unset;
+      text-decoration: none;
+      & > svg {
+        width: 5rem;
+        height: 5rem;
+        fill: var( --color-Grey-light-1);
+        padding: 0 1rem;
+        background-color: rgba(var(--color-primary-rgb), .1);
+        border-radius: 10px;
+      }
+
+      & > p {
+        margin-top: .5rem;
+        text-transform: capitalize;
+        font-weight: 700;
+        //visibility: hidden;
+        border: none;
+      }
+
+    }
+
+    & > #nav-logout-btn{
+
+      width: 100%;
+      text-align: center;
+      padding-top: 4rem;
+      border-top: 1px rgba(153, 153, 153, .3) solid;
+      cursor: pointer;
+      & > svg{
+        width: 5rem;
+        height: 5rem;
+        background-color: rgba(var(--color-primary-rgb), .1);
+        fill: var( --color-Grey-light-1);
+        border-radius: 10px;
+        padding: 0 1rem;
+      }
+
+      & > p{
+
+        margin-top: 2px;
+        font-weight: 700;
+      }
+    }
+  }
+
+
+
+}

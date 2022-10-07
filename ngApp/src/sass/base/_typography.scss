@@ -1,0 +1,101 @@
+body {
+  font-family: Josefin Sans, sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: black;
+
+}
+
+.heading-primary {
+  text-transform: uppercase;
+
+  &--main {
+    display: block;
+    font-size: 5.5rem;
+    font-weight: 700;
+    letter-spacing: 3rem;
+
+    @include responsive(phone){
+
+      letter-spacing: 1rem;
+      font-size: 3.8rem;
+
+    }
+
+  }
+
+  &--sub {
+
+    display: block;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 1.75rem;
+
+    //animation: moveInRight ease-out 2s;
+
+    @include responsive(phone){
+
+      letter-spacing: .5rem;
+
+    }
+  }
+}
+
+.heading-secondary {
+  font-size:var(--default-font-size);
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  letter-spacing: .1rem;
+
+
+  @include responsive(tab-land){
+    font-size:var(--mb-default-font-size);
+  }
+
+}
+
+
+.heading-tertiary{
+  font-size: var(---font-size-mid);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+}
+
+.paragraph{
+  font-size: $default-font-size;
+
+  &:not(:last-child){
+    margin-bottom: 3rem;
+  }
+}
+
+.moving-text{
+
+  transform: translateX(-100vw);
+}
+
+.overflow-h{
+overflow: hidden;
+
+
+}
+
+.moving-text{
+
+  //position: absolute;
+  //left:0;
+  //transform: translateX(0vw);
+
+
+}
+
+.page-heading{
+  font-size: 2rem;
+  letter-spacing: .5rem;
+  margin-left: 3rem;
+  border-bottom: black solid 1px;
+  display: inline-block;
+  padding-bottom: .5rem;
+}

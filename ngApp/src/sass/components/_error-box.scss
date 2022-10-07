@@ -1,0 +1,191 @@
+.error-box {
+  position: absolute;
+  top: -50%;
+  left: 0;
+  right: 0;
+  width: 75%;
+  margin: 0 auto;
+  z-index: 1;
+  padding: 1rem;
+  background: rgba(var(--color-Grey-dark-2-rbg), 0.1);
+  visibility: hidden;
+  opacity: 0;
+
+  transition: all .5s var(--anim-function-1);
+
+
+  @include responsive(phone){
+    width: 100%;
+  }
+
+  &-visible {
+
+    top: 1rem;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__dialog {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 2.5rem;
+
+    & > p {
+      font-size: var(---font-size-mid);
+      color: white;
+      text-transform: capitalize;
+      font-weight: 700;
+
+      @include responsive(tab-port) {
+        font-size: var(---mb-font-size-mid);
+      }
+
+      &:first-child {
+        color: var(--color-secondery);
+      }
+
+      &:last-child {
+        color: var(--color-Grey-light-1);
+      }
+
+    }
+
+  }
+
+
+  & > svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    vertical-align: middle;
+    display: inline-block;
+
+    fill: var(--color-secondery);
+
+  }
+}
+
+.error-box-general {
+  position: fixed;
+  width: 50%;
+  padding: .5rem 0;
+  z-index: 101;
+  text-align: center;
+  background: var(--color-primary-dark-2);
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+
+  @include responsive(phone){
+    width: 100%;
+  }
+
+  & > span{
+
+    position: absolute;
+    top: 0;
+    right: 1.5rem;
+    display: inline-block;
+    color: var(--color-secondery);
+    font-size: 2.5rem;
+    line-height: normal;
+    cursor: pointer;
+
+  }
+
+  &.error-box-visible{
+    top:0;
+  }
+
+}
+
+
+#payment-panel-error-box {
+
+  & p:last-child {
+    color: var(--color-Grey-dark-4);
+
+  }
+}
+
+
+.notify-box-general{
+
+  position: fixed;
+  top: -50%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  background: rgba(var(--color-primary-dark-2-rgb), 0.8);
+  visibility: hidden;
+  opacity: 0;
+  width: 50%;
+  padding: .5rem 0;
+  z-index: 101;
+  text-align: center;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+
+  transition: all 1s var(--anim-function-1);
+
+
+  @include responsive(phone){
+    width: 100%;
+  }
+
+  &__dialog {
+
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 2.5rem;
+
+    & > p {
+      font-size: var(---font-size-mid);
+      color: white;
+      text-transform: capitalize;
+      font-weight: 700;
+
+      @include responsive(tab-port) {
+        font-size: var(---mb-font-size-mid);
+      }
+
+      &:first-child {
+        color: limegreen;
+      }
+
+      &:last-child {
+        color: var(--color-Grey-light-1);
+      }
+
+    }
+  }
+
+  & > svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    vertical-align: middle;
+    display: inline-block;
+
+    fill: limegreen;
+
+  }
+
+
+  & > span{
+
+    position: absolute;
+    top: 0;
+    right: 1.5rem;
+    display: inline-block;
+    color: lime;
+    font-size: 2.5rem;
+    line-height: normal;
+    cursor: pointer;
+
+  }
+
+  &-visible {
+
+    top: 0;
+    visibility: visible;
+    opacity: 1;
+  }
+}

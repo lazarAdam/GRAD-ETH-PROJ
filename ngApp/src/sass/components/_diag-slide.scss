@@ -1,0 +1,257 @@
+.diag-slide {
+
+  position: relative;
+  height: 100%;
+
+  &__slide {
+    opacity: 0;
+  }
+
+
+  // starting state of the slides, Absolute positioned in the center of the viewport
+  &__slide, &__deco {
+
+
+    width: 27%;
+    top: 50%;
+    left: 50%;
+    height: 100%;
+    // add 10vh top/bottom padding since we want the slide image wrapper to have some gap space inside the slide elm
+    padding: 10vh 0;
+    transform: translate(-50%, -50%);
+    position: absolute;
+
+    & > .diag-slide__img-wrap {
+
+      height: 100%;
+      width: 100%;
+      background-size: cover;
+      background-position: 50% 50%;
+
+    }
+
+    & > .diag-slide__header {
+
+      position: absolute;
+      bottom: 10vh;
+      margin-left: -3rem;
+      opacity: 0;
+
+      transition: opacity .3s ease .3s;
+
+    }
+
+
+    // Top left corner of the viewport state. The slide element will have the same padding top/bottom to preserve the
+    // same proportions as  diag-slide__slide-current.
+
+    &-top {
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      padding: 10vh 0;
+      //Negative margin is used to bring the slide elm to top edge since we used 10vh padding  inside the wrapper
+      margin-top: -10vh;
+
+      transform: none;
+      opacity: 1;
+
+      // will be set by JS to slideTop when the user slide in the top direction
+      //and to slideTopLeaving when diag-slide__slide-top is not part of the visible slides and leaving the viewport
+      animation-name: none;
+      animation-iteration-count: 1;
+      animation-timing-function: ease;
+      animation-duration: .5s;
+
+      & > .diag-slide__img-wrap {
+
+        height: 100%;
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: var(--shadow-dark);
+      }
+
+
+    }
+
+    // animation setup  class for the initial loading of the gallery slides
+    // (this class will be added by default slide-top then and removed
+    // by diagonalSlideStarter when the animation finishes on page load)
+    &-top-pre-anim{
+
+      animation-name: initTopSlideAnim;
+      animation-iteration-count: 1;
+      animation-timing-function: ease;
+      animation-duration: 1.5s;
+    }
+
+
+    // State of slide in the bottom right corner of the viewport. The slide element will have the same
+    // padding top/bottom to preserve the same proportions as diag-slide__slide-current.
+    &-bottom {
+
+      left: 100%;
+      top: 50%;
+      height: 100%;
+      border-radius: 10px;
+      padding: 10vh 0;
+      // margin is used to push the slide elm to bottom edge since we used 10vh padding  inside the wrapper
+      margin-top: 10vh;
+      transform: translate(-100%, -50%);
+      opacity: 1;
+
+      // animation setup for the diag-slide__slide-bottom. Check the slideTop keyframe in sass animation file for details
+      // animation-name will be set by JS to slideBottom when the user slide in the bottom corner direction
+      // and to slideBottomLeaving when diag-slide__slide-bottom is not part of the visible slides and leaving the viewport
+      animation-name: none;
+      animation-iteration-count: 1;
+      animation-timing-function: ease;
+      animation-duration: .5s;
+
+
+      & > .diag-slide__img-wrap {
+        height: 100%;
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: var(--shadow-dark);
+      }
+    }
+
+    // animation setup  class for the initial loading of the gallery slides
+    // (this class will be added by default slide-bottom then and removed by
+    // diagonalSlideStarter when the animation finishes on page load)
+
+    &-bottom-pre-anim{
+      animation-name: initBottomSlideAnim;
+      animation-iteration-count: 1;
+      animation-timing-function: ease;
+      animation-duration: 1.5s;
+      animation-delay:1s;
+      animation-fill-mode: backwards;
+
+    }
+  }
+
+  &__slide-current {
+
+    opacity: 1;
+
+    & > .diag-slide__img-wrap {
+      box-shadow: var(--shadow-dark);
+      border-radius: 10px;
+    }
+
+    & > .diag-slide__header {
+      opacity: 1 !important;
+
+    }
+
+  }
+
+  // animation setup  class for the initial loading of the gallery slides
+  // (this class will be added by default to slide-current then and removed by
+  // diagonalSlideStarter when the animation finishes on page load)
+  &__slide-current-pre-anim{
+
+    animation: initCurSlideAnim 1.5s ease .5s backwards;
+  }
+
+  &__deco {
+    z-index: 0;
+    position: relative;
+    margin-left: 20px;
+    top: 48%;
+
+    &__wrapper {
+      background: rgba(0, 0, 0, .07);
+      height: 100%;
+      border-radius: 10px;
+    }
+
+
+    // animation setup activated by setting the name  by js either to decoSlideUp or decoSlideDown
+    animation-name: none;
+    animation-duration: .2s;
+    animation-timing-function: ease;
+    animation-direction: alternate;
+    animation-iteration-count: 2;
+
+  }
+
+  &__deco-pre-anim{
+    animation: decoFadeIn 1s ease;
+  }
+
+  //Apply the transition rules for which will animate the transiting from top -> center -> bottom and vis versa
+  &__slide-top,
+  &__slide-current,
+  &__slide-bottom {
+
+    transition-property: transform, top, left, margin-top;
+    transition-duration: .5s;
+    transition-timing-function: ease;
+
+
+  }
+
+
+  .diag-slide__arrow-down,
+  .diag-slide__arrow-up {
+    cursor: pointer;
+    background: rgba(0,0,0,.06);
+    padding: .5rem;
+    border-radius: 10px;
+
+    & > svg {
+      width: 50px;
+      height: 50px;
+      fill: var(--color-primary-dark-2);
+      // the event will always fire on the parent not the svg
+      pointer-events: none;
+    }
+  }
+
+
+  &__arrow-down {
+
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    transform: rotate(90deg);
+
+
+    animation-name: none;
+    animation-direction: alternate;
+    animation-duration: .2s;
+    animation-iteration-count: 2;
+    animation-timing-function:  var(--anim-function-1);
+
+    &-pre-anim{
+       animation: preAnimArrowDown 1s backwards 2s;
+    }
+
+
+  }
+
+  &__arrow-up {
+
+    position: absolute;
+    top: 0;
+    right: 10px;
+    transform: rotate(-90deg);
+
+    animation-name: none;
+    animation-direction: alternate;
+    animation-duration: .2s;
+    animation-iteration-count: 2;
+    animation-timing-function: var(--anim-function-1);
+
+    &-pre-anim{
+
+      animation: preAnimArrowUp .5s backwards 2s;
+    }
+  }
+
+}

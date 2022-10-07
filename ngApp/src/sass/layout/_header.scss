@@ -1,0 +1,20 @@
+.header-home {
+  height: 100vh;
+  @include responsive(tab-port){
+    // we must unset the height 100% in order to use min-height to avoid conflict
+    height: unset;
+
+    // using min-height set to 100vh  will allow the container's height to grow if the content doesn't fit
+    // the viewport. Therefore min-height implies height should be at least the height of the viewport otherwise it can
+    // grow higher.
+    min-height: 100vh;
+  }
+  padding-top: 9rem;
+  position: relative;
+  //background: var(--gradient-1-2);
+  background: var(--gradient-1);
+  //background: var(--color-primary);
+  //background: var(--color-primary-dark);
+
+}
+

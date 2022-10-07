@@ -1,0 +1,40 @@
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "base/animations";
+@import "base/base";
+@import "base/typography";
+@import "base/utillities";
+
+@import "components/buttons";
+@import "components/card";
+@import "components/form";
+@import "components/popup";
+@import "components/info-card";
+@import "components/diag-slide";
+@import "components/modal";
+@import "components/error-box";
+
+//@import "layout/header";
+//@import "layout/footer";
+//@import "layout/navigation";
+//@import "layout/flex-layout-v1";
+//@import "layout/_side-nav";
+@import "layout/sim-dashboard";
+
+
+@import "pages/portal";
+
+//@import "pages/home";
+//@import "pages/products";
+//@import "pages/prod-detail";
+//@import "pages/bag";
+//@import "pages/wish-list";
+//@import "pages/checkout";
+@import "pages/user-dash";
+//@import "pages/gallery";
+//@import "pages/contact";
+//@import "pages/about";
+
+//adsada

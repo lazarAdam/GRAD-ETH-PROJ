@@ -1,0 +1,42 @@
+
+<!-- string interpolation-->
+<h1>{{userName}}</h1>
+<h1>{{email}}</h1>
+
+<!-- event  and property  bindings-->
+<button [disabled]="bool" (focus)="onClickEvt()"> button </button>
+<input type="text" name="" id="" (input)="onchangeEvt($event)">
+
+
+<button  (focus)="onClickEvt()"> button </button>
+
+
+
+
+<!--  two-way binding-->
+<input type="text" name=""  [(ngModel)]="userName">
+
+<!-- dynamically inserted html based on ngIf = true/false-->
+<p *ngIf="bool else noDirective"> directive inserted</p>
+
+
+<!-- dynamically inserted html based on  ngIf else statement-->
+<ng-template #noDirective>
+
+  <p>no directive inserted</p>
+
+</ng-template>
+
+
+<!--dynamic styling with  directive ngStyle-->
+<p [ngStyle]="{backgroundColor: getColor()}">is online?</p>
+
+
+<!--dynamic css classes with  directive ngClass-->
+<p [ngClass]="{classA: bool === true}">is online?</p>
+
+
+
+<!--dynamic output lists directive-->
+
+<p *ngFor="let next of list">{{next}}</p>

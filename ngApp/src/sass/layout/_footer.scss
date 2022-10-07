@@ -1,0 +1,157 @@
+.footer {
+  background-color: $background-color;
+  color: $color-grey-light-1;
+  padding: 4rem 0;
+
+  &__separator {
+
+    width: 20%;
+    height: 1px;
+    background: var(--color-Grey-dark-3);
+    margin: 1rem auto;
+
+    @include responsive(phone){
+      width: 70%;
+    }
+  }
+
+  &__nav {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include responsive(phone) {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: stretch;
+    }
+  }
+
+  &__cat {
+    margin: 0 8rem;
+    list-style: none;
+    font-size: 1.1rem;
+
+    @include responsive(tab-port) {
+      font-size: 1.4rem;
+      margin: auto;
+      //text-align: center;
+    }
+    @include responsive(phone) {
+      margin: 1rem 0;
+      text-align: center;
+    }
+  }
+
+  &__cat-title {
+    text-transform: uppercase;
+    margin-bottom: .6rem;
+    border-bottom: 1px solid var(--color-Grey-dark-3);
+    color: var(--color-primary);
+
+    @include responsive(phone) {
+      display: inline-block;
+    }
+  }
+
+  &__item {
+    text-transform: capitalize;
+    font-weight: 300;
+
+    &:not(&:last-child){
+      margin-bottom: 1rem;
+    }
+
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: white;
+      border-bottom-color: var(--color-secondery);
+      transition: color .5s ease;
+
+      &:not(&:last-child){
+        padding-bottom: .5rem;
+      }
+    }
+
+    &:hover,
+    &:active {
+
+      color: var(--color-secondery);
+    }
+
+
+  }
+
+  &__social {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 400;
+
+    & p {
+
+      display: inline-block;
+      border-bottom: .5px solid var(--color-Grey-dark-3);
+      color: var(--color-primary);
+    }
+
+    &__icon-box {
+      margin-top: 1.2rem;
+
+      & svg {
+        width: 20px;
+        height: 20px;
+        fill: white;
+      }
+
+      & a:not(:last-child) {
+        padding-right: 1rem;
+        text-decoration: none;
+      }
+    }
+
+  }
+  &__payments{
+
+    text-align: center;
+    margin-top: 2.5rem;
+    & svg{
+
+      fill: var(--color-Grey-light-1);
+      width: 45px;
+      height: 45px;
+
+      &:not(:last-child){
+        margin-right: 5px;
+      }
+
+      @include responsive(phone) {
+        &:not(:last-child) {
+          margin-right: 0;
+        }
+      }
+    }
+
+    &-powered-by{
+
+      & svg{
+        fill: var(--color-Grey-light-1);
+        width: 140px;
+        height: 45px;
+      }
+    }
+  }
+  &__copyright {
+    text-align: center;
+    color: var(--color-Grey-light-1);
+
+    & p {
+      margin-top: 1rem;
+    }
+  }
+}

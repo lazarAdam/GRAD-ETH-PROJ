@@ -1,0 +1,67 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  // disable blue highlight when tapping for chrome browser
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+}
+
+html {
+  // this defines what 1rem  means (if the browser default is 16px then 62.5% = 10px => 10/16 )
+  // so 65.5% of the current browser font size and then 1rem  now is equal to 10px
+
+  font-size: 65.5%; // 1 rem = 11px  this is for normal desktop screens where 1200px < width < 1800px
+
+  scroll-behavior: smooth;
+
+  /**
+    important note: When writing media queries for desktop first, always write largest to smallest screen width
+    In case if there is a conflict between two media queries CSS will apply the one listed last in the code (cascade)
+
+    for example if the current width of the screen is 850px both tab-land and tab-port will be in conflict because
+    850px is smaller than 1200px and 900px then CSS will apply the last listed media query in the code to resolve the
+    conflict
+    in the code bellow that would be tab-port media query which applies on width < 900px
+
+   when doing a mobile first responsive design always write smallest to largest media query since it is the opposite way
+
+   */
+
+  // when width > 1800px (min-width) apply
+  @include responsive(large-desktop){
+    font-size: 75%; // 1rem = 12px , 12/16 = 75%
+  }
+
+  // when width < 1200px apply
+  @include responsive(tab-land){
+    font-size: 56.25%; // 1 rem = 9px, 9/16 = 56.25%
+  }
+
+  // when  width < 900px apply
+  @include responsive(tab-port){
+    font-size: 50%; // 1 rem = 8px, 8/16 = 50%
+  }
+
+  //  font size for phone  is the same in tab-port 50%
+  // when width < 600px apply
+  @include responsive(phone){
+    font-size: 50%; // 1 rem = 8px, 8/16 = 50%
+  }
+}
+
+body {
+  box-sizing: border-box;
+
+  & svg{
+    pointer-events: none;
+  }
+}
+
+//::selection{
+//  background-color: $color-primary;
+//  color: $color-white;
+//}
+
+

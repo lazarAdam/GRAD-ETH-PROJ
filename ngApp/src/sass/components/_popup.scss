@@ -1,0 +1,166 @@
+//.popup::before{
+//  content: '';
+//  position: absolute;
+//  top: 0;
+//  left: 0;
+//  right: 0;
+//  bottom: 0;
+//  //background: inherit;
+//  filter: blur(200px);
+//}
+
+.popup {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 3000;
+  background-color: rgba($color-black, .7);
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s;
+  overflow: hidden;
+
+
+  // graceful browser degradation
+  // testing for feature support on some browser before applying the properties
+  @supports (-webkit-backdrop-filter: blur(10px)) or  (backdrop-filter: blur(10px)) {
+
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    //background-color: rgba($color-black, .8);
+
+  }
+
+
+  &__content {
+    @include absCenter;
+    width: 75%;
+    background-color: $color-white;
+    box-shadow: 0 2rem 4rem rgba($color-black, .2);
+    border-radius: 3px;
+    display: table;
+    overflow: hidden;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(.25);
+    transition: all .4s .2s;
+
+    @include responsive(tab-port){
+      width: 90%;
+    }
+  }
+
+  &__left {
+    width: 34.444444%;
+    display: table-cell;
+
+
+    @include responsive(tab-port){
+      display: block;
+      width: 100%;
+      text-align: center;
+
+
+    }
+
+  }
+
+
+
+  &__right {
+    width: 65.555556%;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 3rem 5rem;
+    text-align: center;
+
+    @include responsive(tab-port){
+
+      display: block;
+      width: 100%;
+      padding: 2rem;
+      text-align: center;
+    }
+
+  }
+
+  &__img {
+    display: block;
+    width: 39rem;
+    height: 28rem;
+    object-fit: cover;
+
+    @include responsive(tab-port){
+
+      display: inline-block;
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      margin: 1rem;
+    }
+
+    @include responsive(phone){
+      width: 150px;
+      height: 150px;
+
+    }
+  }
+
+  &__text {
+
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
+
+    column-count: 2;
+    column-gap: 4rem;
+    column-rule: 1px solid $color-grey-light-2;
+
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+
+    @include responsive(tab-port) {
+
+      font-size: 1.5rem;
+    }
+  }
+
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+
+
+  //open state
+  &:target &__content {
+
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+
+  }
+
+  &__close {
+
+    &:link,
+    &:visited {
+
+      color: $color-grey-dark;
+      position: absolute;
+      top: 0;
+      right: 1rem;
+      font-size: 3rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: all .3s;
+      line-height: 1;
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+
+}

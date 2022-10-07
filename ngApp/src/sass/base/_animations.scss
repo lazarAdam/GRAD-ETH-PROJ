@@ -1,0 +1,768 @@
+//on logo wrapper hover select the the logo inside and animate
+//this fix flickering when using hover directly on .header__logo which is an img tag
+//.header__logo-wrapper:hover .header__logo{
+//  animation: moveInRight ease-out 1s;
+//}
+
+
+.moving-text {
+  animation: movingText 20s linear infinite;
+}
+
+@keyframes moonAnimation {
+
+  0% {
+    border-top: 3px solid transparent;
+    border-right: 3px solid transparent;
+  }
+
+  50% {
+    border-top: 3px solid $color-grey-dark-2;
+  }
+
+  80% {
+    border-right: 3px solid $color-grey-dark-2;
+  }
+
+  100% {
+    border-top: 3px solid $color-grey-dark-2;
+    border-right: 3px solid $color-grey-dark-2;
+  }
+}
+
+@keyframes moveInLeft {
+
+  0% {
+    opacity: 0;
+    transform: translateX(-30rem);
+  }
+
+  80% {
+    transform: translateX(1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+
+}
+
+@keyframes moveInRight {
+
+  0% {
+    opacity: 0;
+    transform: translateX(30rem);
+  }
+
+  80% {
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+
+}
+
+
+@keyframes moveInBottom {
+
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  40% {
+    transform: translateY(1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+@keyframes moveInTop {
+
+  0% {
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+
+  50%{
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+
+}
+
+
+@keyframes movingText {
+
+  0% {
+
+    transform: translateX(-95vw);
+
+  }
+
+  100% {
+
+    transform: translateX(95vw);
+  }
+}
+
+@keyframes opacityAnim {
+
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+
+}
+
+@keyframes fadeInAnim {
+
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  to {
+
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes  fadInFromTop{
+
+
+  0%{
+    opacity: 0;
+
+    transform: translateY(-80px) scale(0.5);
+
+  }
+
+
+  50%{
+
+    transform: translateY(10px);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+
+}
+
+
+/**
+  code for animated drawn lines using borders of ::after and ::before elements
+ */
+
+// basic setup of ::after and ::before
+.draw-setup {
+  position: relative;
+  // insert an empty before and after element in the block using this class
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    border: 2px solid transparent; // stating with transparent border
+    width: 0;
+    height: 0;
+  }
+
+  // expand the width of the after and before shapes to 100% on hover
+  &:hover::before,
+  &:hover::after {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// classes used along with .draw-setup//
+
+// rectangular drawing from top -> right down ->bottom -> left up
+.draw-rect {
+
+  // this is the position where css starts drawing the element also the initial position of the element in containing block
+  // therefore when  we animate the width and height from 0 -> 100% the drawing will start from bottom right
+  // for the after elem and from the top left for :before elm
+
+  // This covers the top & right borders (expands right, then down)
+  &::before {
+    top: 0;
+    left: 0;
+  }
+
+  // And this covers the bottom & left borders (expands left, then up)
+  &::after {
+    bottom: 0;
+    right: 0;
+
+  }
+
+  // before animation timing
+  &:hover::before {
+    border-top-color: white;
+    border-right-color: white;
+
+    transition: width 1s ease-out, // Width expands first
+    height 1s ease-out 1s; // And then height
+  ;
+  }
+
+  // after animation timing
+  &:hover::after {
+    border-bottom-color: black;
+    border-left-color: black;
+
+    transition: border-color 0s ease-out 2s, // Wait 2s for ::before to finish before showing border (color glitch)
+    width 1s ease-out 2s, // And then expanding width
+    height 1s ease-out 3s; // And finally height
+  ;
+  }
+
+}
+
+
+// drawing start at the top left corner and it ends at the right bottom corner
+.draw-meet {
+  // here the before and after start at the same position as ::after, top left corner of the containing block
+  &::before,
+  &::after {
+    top: 0;
+    left: 0;
+  }
+
+  // before animation timing
+  &:hover::before {
+    // show only top and right borders of the before element
+    border-top-color: white;
+    border-right-color: white;
+
+    transition: width 1s ease-out, // Width expands first
+    height 1s ease-out 1s; // And then height with 1s delay
+  ;
+  }
+
+  // after animation timing
+  &:hover::after {
+
+    // show only left and bottom borders of the after element
+    border-bottom-color: black;
+    border-left-color: black;
+    // height expands first of the ::after element since the element start at the top therefore we need
+    // the height to 100% then width 100% to see the bottom border
+    transition: height 1s ease-out, width 1s ease-out 1s;
+  }
+}
+
+.draw-center {
+
+
+  // the before will cover the left and right borders drawing
+  &::before {
+    top: 50%; // start the element the pushed 50% from the top
+    left: 0;
+  }
+
+  // the after will cover the top and bottom borders drawing
+  &::after {
+    left: 50%; // start the element  pushed 50% from the left
+    top: 0;
+  }
+
+  &:hover::before {
+    //show left and right border colors
+    border-left-color: black;
+    border-right-color: black;
+
+    // push the element back to top edge when hovering
+    // animating this will show the border expanding from the center in both direction top and bottom
+    // that means moving to the top edge at the same time as increasing the height to 100%
+    // delly the top transition by .5s to see it clearly
+    top: 0;
+    // animate height and the top position transitions
+    transition: height .5s, top .5s;
+  }
+
+  // same logic applies for top and bottom borders except the  is moving horizontally
+  &:hover::after {
+    border-top-color: black;
+    border-bottom-color: black;
+    left: 0;
+
+    transition: width .5s, left .5s;
+  }
+
+}
+
+.draw-underline {
+
+  &::before {
+    left: 50%;
+    bottom: 0;
+    transition: width .5s, border-bottom-color .5s, left .5s;
+  }
+
+  &:hover::before {
+    border-bottom-color: inherit;
+    left: 0;
+  }
+
+}
+
+
+/**
+ code for none-border single line drawing method, using a single ::before element and adjusting height and width
+ */
+.draw-setup-2 {
+  position: relative;
+
+  // basic ::before setup
+  &::before {
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 0; // width is set to 0 initially
+    background: $color-grey-light-2;
+
+    /**
+  placing the transition  prop on the ::before will include transitions when hovering and when the mouse leaves ::before
+  For example the width prop goose from 0 to 100% state on hover and from 100% to 0% state on mouseleave
+
+ */
+    // animate  all properties
+    transition: all .5s;
+  }
+
+
+  // classes that go along with draw-setup-2 //
+
+  // underline start expanding form the center in both left and right directions
+  &__cent-ul {
+
+    &::before {
+      left: 50%; // element is pushed 50% from the left initially
+      bottom: 0; // element starts from bottom this will allow a bottom underline
+    }
+
+    &:hover::before {
+      width: 100%; // expand the width to show the line which now has 3px height and 100% width
+      left: 0; // push back the element to the left corner(this will give the effect of a line expending from the center)
+    }
+
+  }
+
+  // left to right
+  &__bottom-l-to-r {
+
+    &::before {
+      left: 0;
+      bottom: 0; // element starts from left bottom this will allow a  left to right bottom underline
+    }
+
+    &:hover::before {
+      width: 100%; // expand the width to show the element which now has 3px height and 100% width
+    }
+
+  }
+
+  // bottom right to left
+  &__btm-r-to-l {
+
+    &::before {
+      right: 0;
+      bottom: 0; // element starts from left bottom this will allow a  left to right bottom underline
+    }
+
+    &:hover::before {
+      width: 100%; // expand the width to show the element which now has 3px height and 100% width
+    }
+
+  }
+
+  // bottom left -> right -> right
+  &__btm-l-r-r {
+
+    &::before {
+      // moving to the right corner when the mouse leaves ::before which give the effect
+      // of the line decreasing width towards the right corner
+      right: 0;
+      bottom: 0;
+    }
+
+    &:hover::before {
+
+      width: 100%;
+      //start from the left corner on hover and increase the width towards the right
+      left: 0;
+    }
+
+  }
+
+  // top -> bottom -> top
+  &__top-to-btm {
+
+    // hide overflow of the ::before caused by moving -3px to the top
+    overflow: hidden;
+
+    &::before {
+      width: 100%; // width is set 100% initially
+      left: 0;
+      top: -3px; // move out of the containing block starting at the top
+    }
+
+
+    &:hover::before {
+      top: calc(100% - 3px); // move from top to bottom by setting top distance
+    }
+
+  }
+
+  &__fill {
+    // The containing block which using this class must have a z-index
+    // this is important because it defies the stacking context where ::before lives on the z axis
+    // setting z-index  to -1 on ::before and parent to 1 will not push the elm behind the parent
+    // although the content in the parent will  be on top of the before element which will result in background
+    // being bellow the content that doesn't have a defined background. For example a <p> will show its text
+    // on top of ::before
+    z-index: 1; // define a stacking context on the parent
+
+    &::before {
+      left: 0;
+      top: 0;
+      height: 100%;
+      z-index: -1; // set ::before at lat position on z axis
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+
+  }
+}
+
+
+
+
+
+
+
+
+
+/**
+
+ANIMATIONS FOR THE DIAGONAL SLIDE
+
+ these animations will apply to the diag-slide__slide-top and diag-slide__slide-bottom elements and will be activated
+ via JS by setting the name of the animation. The code is  the function slide() part of the view
+
+ Without slideTop  and slideBottom the element becoming slide-bottom or slide-top will move form the center of the viewport
+ to the top or the bottom which is not correct, because that's where the diag-slide__slide elements are positioned by
+ the css code. To make the transition for incoming top or bottom elements seems as if they came from the edge
+ of the viewport, slideTop will be applied to diag-slide__slide-top and slideBottom will be applied to iag-slide__slide-bottom
+
+
+ slideTopLeaving and slideBottomLeaving are used temporarily  by JS for 500ms when the  slide element
+ is no longer part of the visible slides and will become invisible which will have diag-slide__slide only
+ */
+
+
+
+@keyframes initCurSlideAnim {
+
+  0%{
+    opacity: 0;
+    transform: translateY(-180%) translateX(-50%);
+  }
+
+  60%{
+    transform:translateY(-40%) translateX(-50%);
+  }
+
+  100%{
+    opacity: 1;
+    transform:translateY(-50%) translateX(-50%);
+  }
+}
+
+
+@keyframes initBottomSlideAnim {
+
+  0%{
+    opacity: 0;
+    transform: translate(-100%, -180%);
+  }
+
+  60%{
+    transform: translate(-100%, -40%);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translate(-100%, -50%);
+  }
+}
+
+
+@keyframes initTopSlideAnim {
+
+  0%{
+
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  60%{
+    transform: translateY(10%);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes slideTop {
+
+  // initial position, off the left edge of the viewport
+  0% {
+    left: -100%;
+  }
+
+  // final position which is on the left edge of the viewport
+  100% {
+
+    left: 0;
+  }
+}
+
+
+@keyframes slideBottom {
+
+  // initial position off the right edge of the viewport
+  0% {
+
+    left: 200%;
+
+  }
+
+  // final position which is on the right edge of the viewport
+  100% {
+    left: 100%;
+  }
+
+
+}
+
+@keyframes slideTopLeaving {
+
+  100% {
+    left: -100%;
+  }
+}
+
+@keyframes slideBottomLeaving {
+
+  100% {
+    left: 200%;
+  }
+}
+
+/**
+ Animations for the slide__deco element which will be activated by JS slide()
+ */
+@keyframes decoSlideUp {
+
+  0%{
+
+    transform: translate(-50%,-50%);
+  }
+
+
+  100%{
+    transform: translate(-58%,-52%);
+
+  }
+}
+
+@keyframes decoSlideDown {
+
+  0%{
+
+    transform: translate(-50%,-50%);
+  }
+
+
+  100%{
+    transform: translate(-42%,-48%);
+
+  }
+}
+
+@keyframes decoFadeIn {
+
+  0%{
+      opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+}
+
+/**
+Animations for the diag-slide__arrowUp/Down  element which will be activated by JS slide()
+ */
+
+@keyframes arrowUp {
+
+  0%{
+    transform: rotate(-90deg) translate(0px,0px);
+  }
+  100%{
+    transform: rotate(-90deg) translate(5px,5px);
+  }
+
+}
+
+@keyframes arrowDown {
+
+  0%{
+    transform: rotate(90deg)
+  }
+  100%{
+    transform: rotate(90deg) translate(5px,5px);
+  }
+}
+
+@keyframes preAnimArrowDown {
+
+  from{
+    transform: translateX(-150%) rotate(90deg) ;
+
+
+  }
+
+  to{
+    transform: translateX(0) rotate(90deg) ;
+  }
+
+}
+
+@keyframes preAnimArrowUp {
+
+  from{
+    transform: translateX(150%) rotate(-90deg) ;
+
+
+  }
+
+  to{
+    transform: translateX(0) rotate(-90deg) ;
+  }
+}
+
+
+
+
+/**
+slide animations used with imageSlider function.
+ These animations can be used to animate an image slide show in upward and downward directions
+ check the nav-drop__menu or  prod-detail__image-wrapper for the required html
+ */
+
+// upwards direction
+@keyframes slideLeavingUp {
+
+  0%{
+    // keep the element at the top assuming using position absolute
+    // which will make all elements  stacked on top of each other
+    z-index: 1;
+    transform: translateY(0);
+  }
+
+  100%{
+
+    z-index: 1;
+    // push the element out 100% of it's height upwards
+    transform: translateY(-100%);
+
+  }
+}
+
+@keyframes slideEnterUp {
+
+
+  0%{
+
+    // keep the element at the top assuming using position absolute
+    // which will make all elements  stacked on top of each other
+    z-index: 1;
+    transform: translateY(100%);
+  }
+
+  100%{
+
+    // bring the element back to it's normal position and show it
+    z-index: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+// downwards direction
+@keyframes slideLeavingDown {
+
+  0%{
+
+    // keep the element at the top assuming using position absolute
+    // which will make all elements  stacked on top of each other
+    z-index: 1;
+
+    transform: translateY(0);
+  }
+
+  100%{
+
+    z-index: 1;
+    // push the element out 100% of it's height downwards and hide it
+    //visibility: hidden;
+    transform: translateY(100%);
+  }
+}
+
+@keyframes slideEnterDown {
+
+
+  0%{
+    // keep the element at the top assuming using position absolute
+    // which will make all elements  stacked on top of each other
+    z-index: 1;
+    transform: translateY(-100%);
+  }
+
+  100%{
+
+    // bring the element back to it's normal position and show it
+    z-index: 1;
+    transform: translateY(0);
+  }
+}

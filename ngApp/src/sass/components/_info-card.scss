@@ -1,0 +1,71 @@
+.info-card {
+  // basic structure
+  clip-path: circle(15px at 96% 10%);
+  position: relative;
+
+
+  &__icon {
+
+    font-weight: bold;
+    transition: color .5s ease-in-out;
+    font-size: 3rem;
+  }
+
+
+  &:focus,
+  &:hover, {
+    clip-path: circle(75%);
+
+  }
+
+  &:hover .info-card__icon {
+    color: transparent;
+  }
+
+}
+
+// define the other attribute for each type of info card
+
+.info-card-adr {
+
+  background: var(--color-secondery);
+  transition: all ease .5s;
+
+  @include responsive(tab-land) {
+
+    clip-path: circle(15px at 96% 11%);
+  }
+  @include responsive(phone) {
+    clip-path: circle(15px at 93% 12%);
+  }
+
+  & .info-card__icon {
+    position: absolute;
+    right: 3.3%;
+    top: 1px;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: white;
+
+
+    @include responsive(phone) {
+      right: 6%;
+      top: 2px;
+    }
+
+  }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

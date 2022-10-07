@@ -1,0 +1,253 @@
+.card {
+
+  // parent card wrapper general styling
+
+  perspective: 100rem;
+  position: relative;
+
+  // we need fixed height different card types  instead of depending on the children height using auto.
+  // the sides of the card will be absolute which means .card parent will lose the height due
+  // the sides are no longer part of the card's document flow.
+
+
+  &--auth-forms {
+
+    height: 51rem;
+
+    @include responsive(tab-port) {
+      height: 55rem;
+    }
+  }
+
+  &--user-profile {
+    height: 38rem;
+    width: 30%;
+
+    @include responsive(tab-land) {
+      height: 40rem;
+      width: 35%;
+    }
+
+    @include responsive(tab-port) {
+      height: 40rem;
+      width: 54%;
+    }
+
+    @include responsive(phone) {
+
+      width: 80%;
+    }
+
+
+  }
+
+  /**
+   An alternative approach for giving the card automatic height even if all of it's children are out of
+   the document flow causing the height to collapse due to position absolute.
+   We can use a trick that is used to create responsive images with different
+   sizes in the context of flex box. The details are as follows.
+
+   1. give the relative parent .card--products a padding-bottom or top equal to to it's width.
+      Width of the parent will be defined by width of the absolute positioned children
+   2. padding will act as content and when used as % value it becomes  proportional to the width.
+   3. if we want the height to be equal to the width we set the padding-bottom or top to the same value as
+      the width. Here the width is 80% of the parent container so the padding should be also 80% to be equal
+   4. with this, the card will gain height that did collapse because card sides are the only children and they have
+      position absolute.
+ */
+  &--products {
+    width: 80%;
+    padding-bottom: 80%;
+
+    & > .card__side--back {
+      cursor: pointer;
+    }
+  }
+
+
+  // general structure of the card sides
+  &__side {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 2.5rem 4rem rgba($color-black, .3);
+    transition: all .8s ease;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    overflow: hidden;
+
+    &--front,
+    &--back {
+
+      background: inherit;
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+    }
+  }
+
+
+  // FRONT STYLING
+
+  /**
+    About responsive flex images using the padding-bottom or padding-top and aspect ratio trick
+    This method allows to position images with different sizes in flex box context.
+    The following is some step to achieve this.
+
+    1. Create a picture wrapper element with position relative and place it inside a flex item  or any of the flex item
+       children. The flex item will be the ancestor and will control the width of all the inner children
+    2. Place the image tag inside the wrapper and give it a position of absolute
+    3. calculate the aspect ration of the image with lowest height (dividing the height by the width)
+    4. the result will be applied to padding-bottom or top  using percentage.
+    5. padding will act as content and when used as % value it becomes proportional to the width of the same element.
+       For example if the wrapper width = 500px using padding-bottom = 100% will give the wrapper 500px of height
+    6. The previous step will allow the wrapper to have a height even if it's img child is positioned absolute
+       The width of the wrapper is defined by the child image width, therefore using padding-bottom with %
+       will be proportional to the width of the wrapper. 60% bottom-padding means 60% of the total width.
+       This will perfectly fit the smallest image inside the wrapper.
+
+    7. Note that we set the width of the image to 100% which will size the image to the full width of the wrapper.
+       The height will be left to default which means respecting the aspect ratio of the image and preventing
+       stretching or shrieking .
+
+       To make all the images the same size we use overflow hidden on the wrapper and center with top 50%,
+       translateY(-50%) on the img element. This will make all the images be strictly positioned according to the
+       smallest image. overflow:hidden will hide the top/bottom overflow of the larger images and center them in wrapper.
+       We can think of the wrapper as a frame, where the smallest image is perfectly fit in the wrapper and the larger
+       images are  have their position centered in the frame while hiding the excess form the top and bottom
+       This method will also work if the images have the same size the difference is that
+       the images will have equal aspect ratio therefore they will perfectly fit inside the wrapper without overflowing.
+
+*/
+
+  // front styling for the product card content
+  &__picture-wrapper {
+
+    overflow: hidden;
+    padding-bottom: 100%; // aspect ration here of the image with smallest height is around 100%
+    position: relative;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+  }
+
+  &__prod-info {
+    position: absolute;
+    z-index: 1;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: white;
+
+
+    @include responsive(tab-land) {
+      bottom: 5px;
+    }
+
+    & p {
+      font-weight: 400;
+      text-shadow: 1px 2px 5px black;
+    }
+
+    & h2 {
+      font-weight: 400;
+      font-size: 1.5rem;
+      text-shadow: 1px 2px 5px black;
+
+      @include responsive(phone) {
+
+        font-size: 1.9rem;
+      }
+
+    }
+  }
+
+
+  // Back side content styling for product cards
+
+  &__svg-box {
+    position: absolute;
+    left: 50%;
+    width: 4.5rem;
+    height: 3.5rem;
+    transform: translate(-50%);
+
+    & svg {
+      width: 100%;
+      height: 100%;
+      fill: grey;
+      stroke-width: 2.2px;
+      pointer-events: none;
+
+      transition: fill .5s var(--anim-function-1);
+
+    }
+
+    &-liked {
+      & > svg {
+        fill: var(--color-primary) !important;
+
+      }
+    }
+
+  }
+
+  &__svg-box__top {
+
+    top: 0;
+    margin-top: 1.5rem;
+  }
+
+  &__svg-box__bottom {
+
+    bottom: 0;
+    margin-bottom: 1.5rem;
+  }
+
+
+  // card rotation based on hovering
+  &-hover:hover {
+    & .card__side--front {
+      transform: rotateY(-180deg);
+    }
+
+    & .card__side--back {
+      transform: rotateY(0);
+    }
+
+  }
+
+  // card rotation based on pressing or tapping
+  &-switch-back {
+    & .card__side--front {
+      transform: rotateY(-180deg);
+    }
+
+    & .card__side--back {
+      transform: rotateY(0);
+    }
+  }
+
+  &-switch-front {
+    & .card__side--front {
+      transform: rotateY(0);
+    }
+
+    & .card__side--back {
+      transform: rotateY(180deg);
+    }
+  }
+
+}
+
