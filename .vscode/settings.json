@@ -1,0 +1,16 @@
+{
+    "solidity.remappings": [
+    
+    ],
+    "css.styleSheets": [
+        "/ngApp/src/styles.css",
+        "/ngApp/node_modules/bootstrap/dist/css/bootstrap.min.css",
+    ],
+    "cSpell.enableFiletypes": [
+        "solidity"
+    ],
+    "cSpell.words": [
+        "struct"
+    ],
+    "solidity.compileUsingRemoteVersion": "v0.5.17+commit.d19bba13"
+}

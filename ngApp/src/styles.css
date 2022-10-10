@@ -2027,9 +2027,7 @@ body {
         clip-path: ellipse(90% 100% at 50% 0%); } }
     .sim-dash__nav__header {
       flex: 0 0 100%;
-      align-self: start;
       text-align: center;
-      display: flex;
       padding: 2rem 1rem;
       animation: moveInLeft 1s ease .5s backwards; }
       @media only screen and (max-width: 37.5em) {
@@ -2566,57 +2564,14 @@ body {
       margin-top: 3rem;
       animation: moveInTop 1s ease .3s backwards; }
 
-.portal-cont {
-  min-height: 100vh;
-  height: 100vh;
-  display: flex;
-  background: linear-gradient(to bottom, #d49b7e 50%, #e7e7e7 50%); }
-  .portal-cont .portal__info {
-    flex: 0 1 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background: var(--gradient-1);
-    border-bottom-right-radius: 50px; }
-    .portal-cont .portal__info__logo {
-      margin: 0 auto;
-      width: 30%;
-      margin-top: 5rem; }
-      .portal-cont .portal__info__logo > img {
-        width: 100%; }
-    .portal-cont .portal__info__header {
-      align-self: center;
-      line-height: 3.5;
-      color: var(--color-primary-dark-2);
-      text-shadow: var(--text-shadow); }
-      .portal-cont .portal__info__header > h2:nth-child(2) {
-        padding-left: 2.5rem; }
-      .portal-cont .portal__info__header > h2:last-child {
-        padding-left: 5rem; }
-      .portal-cont .portal__info__header > h2 {
-        font-size: 2.5rem; }
-    .portal-cont .portal__info__copyright {
-      align-self: center;
-      margin-bottom: 2.5rem;
-      color: var(--color-primary-dark-2);
-      font-weight: 700; }
-  .portal-cont .portal__login-form {
-    flex: 0 1 50%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    background: var(--color-Grey-light-2);
-    border-top-left-radius: 50px; }
-    .portal-cont .portal__login-form > form {
-      flex: 0 1 50%; }
-      .portal-cont .portal__login-form > form > .form__heading {
-        color: var(--color-primary-dark-2);
-        font-weight: 700; }
-
 .user-dash-sec {
   background: var(--color-Grey-light-2);
   height: 100vh; }
   @media only screen and (max-width: 75em) and (orientation: landscape) and (max-height: 37.5em) {
     .user-dash-sec {
       height: auto; } }
+
+.nft-display {
+  height: 100vh; }
+  .nft-display__cards {
+    margin-top: 5rem; }

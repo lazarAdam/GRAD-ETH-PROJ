@@ -3,18 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {PortalCp} from "./test/portal-cp";
-import { PortalComponent } from './portal/portal.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NftDisplayComponent } from './nft-display/nft-display.component';
+import { NftDetailsComponent } from './nft-details/nft-details.component';
+import { NftSellComponent } from './nft-sell/nft-sell.component';
+import { NftBuyComponent } from './nft-buy/nft-buy.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PortalCp,
-    PortalComponent,
     DashboardComponent,
+    NftDisplayComponent,
+    NftDetailsComponent,
+    NftSellComponent,
+    NftBuyComponent,
 
 
   ],
@@ -22,6 +26,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    AppRoutingModule
 
   ],
   providers: [],
