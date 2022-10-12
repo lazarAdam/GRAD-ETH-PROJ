@@ -11,6 +11,7 @@ contract User is NFT {
         // Useful for checking if an object already exist in users. Must be set to true at UserData object creation time.
         bool exist; 
         uint256 mintingLimit;
+        address account;
     }
 
     // mapping to store a User object for the user that created it.
@@ -22,7 +23,7 @@ contract User is NFT {
      */
     function _createUser(string memory _name) private {
 
-        UserData memory user = UserData(_name,true,4);
+        UserData memory user = UserData(_name,true,4,msg.sender);
 
         users[msg.sender] = user;
 
@@ -36,12 +37,12 @@ contract User is NFT {
     function getUserData()
         public
         view
-        returns (string memory, uint)
+        returns (string memory, uint,address)
     {
         
         // unpack the data attributes form the UserData object 
         // we cannot send the UserData object back to the front-end
-        return (users[msg.sender].userName, users[msg.sender].mintingLimit);
+        return (users[msg.sender].userName, users[msg.sender].mintingLimit,users[msg.sender].account);
     }
 
     /**
@@ -67,7 +68,7 @@ contract User is NFT {
      */
     function createNewNFT(
         string memory name,
-        uint256 value,
+        uint256 value, 
         string memory category,
         string memory artFileUrl
     ) public {
