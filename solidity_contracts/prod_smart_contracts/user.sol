@@ -1,4 +1,5 @@
 pragma solidity >=0.5.0 <0.6.0;
+pragma experimental ABIEncoderV2;
 
 import "./nft.sol";
 
@@ -37,12 +38,12 @@ contract User is NFT {
     function getUserData()
         public
         view
-        returns (string memory, uint,address)
+        returns (UserData memory)
     {
         
         // unpack the data attributes form the UserData object 
         // we cannot send the UserData object back to the front-end
-        return (users[msg.sender].userName, users[msg.sender].mintingLimit,users[msg.sender].account);
+        return (users[msg.sender]);
     }
 
     /**

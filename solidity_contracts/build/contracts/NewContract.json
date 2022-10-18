@@ -1,0 +1,1924 @@
+{
+  "contractName": "NewContract",
+  "abi": [
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "val1",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "val2",
+          "type": "uint256"
+        }
+      ],
+      "name": "etherEvent",
+      "type": "event"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "list",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "atrr",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "message",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "returnStruct",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "atrr",
+              "type": "string"
+            }
+          ],
+          "internalType": "struct NewContract.testStruct",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "addToArray",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "atrr",
+              "type": "string"
+            }
+          ],
+          "internalType": "struct NewContract.testStruct[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.17+commit.d19bba13\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"val1\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"val2\",\"type\":\"uint256\"}],\"name\":\"etherEvent\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[],\"name\":\"addToArray\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"atrr\",\"type\":\"string\"}],\"internalType\":\"struct NewContract.testStruct[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"list\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"atrr\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"message\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"returnStruct\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"atrr\",\"type\":\"string\"}],\"internalType\":\"struct NewContract.testStruct\",\"name\":\"\",\"type\":\"tuple\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/newContract.sol\":\"NewContract\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/newContract.sol\":{\"keccak256\":\"0x474ab1e859bf4e96ddabb5b28ac6c18c6815e5ee1231182f24e3e52802136b5d\",\"urls\":[\"bzz-raw://45c77e67c654294931e2c82b84b04af7ec04e63b89fa9cd5028b57dc255f8fff\",\"dweb:/ipfs/QmSUP2dcswQ98nMvieMr7wz3cXi2Y8pvhrMW6av7Zn6KUV\"]},\"project:/contracts/newContractChild.sol\":{\"keccak256\":\"0xc594d1c27c50b04fe4ff93c13781fcb4554e32163a7e5eee030991468bdf69a7\",\"urls\":[\"bzz-raw://76ccce2b7973ca780dbc6d9e3d5c07cb363aecc7ccfcca908647bd60c70599bb\",\"dweb:/ipfs/QmRLAZizJQkQsphnbJjxMs3hpHoUPtwpR9V6w4gP31JkN9\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506040518060400160405280600e81526020017f4368696c6420436f6e74726163740000000000000000000000000000000000008152506001908051906020019061009c9291906100e3565b5033600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550610188565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061012457805160ff1916838001178555610152565b82800160010185558215610152579182015b82811115610151578251825591602001919060010190610136565b5b50905061015f9190610163565b5090565b61018591905b80821115610181576000816000905550600101610169565b5090565b90565b61086b806101976000396000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c806380c9419e1461005c5780638da5cb5b1461008c578063c22fd45e146100aa578063d34e768d146100c8578063e21f37ce146100e6575b600080fd5b6100766004803603610071919081019061044c565b610104565b604051610083919061065f565b60405180910390f35b6100946101c3565b6040516100a19190610622565b60405180910390f35b6100b26101e9565b6040516100bf91906106af565b60405180910390f35b6100d0610229565b6040516100dd919061063d565b60405180910390f35b6100ee6102e1565b6040516100fb919061065f565b60405180910390f35b6003818154811061011157fe5b90600052602060002001600091509050806000018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156101b95780601f1061018e576101008083540402835291602001916101b9565b820191906000526020600020905b81548152906001019060200180831161019c57829003601f168201915b5050505050905081565b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6101f161037f565b6101f961037f565b60405180602001604052806040518060600160405280602d81526020016107cf602d913981525090508091505090565b606061023361037f565b60405180602001604052806040518060600160405280602d81526020016107fc602d9139815250905060038190806001815401808255809150509060018203906000526020600020016000909192909190915060008201518160000190805190602001906102a2929190610392565b505050507f5b43fbf80e6d8b225db427a7bc1ba940132084656811f08ed177826f50333d0d426040516102d59190610681565b60405180910390a15090565b60018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103775780601f1061034c57610100808354040283529160200191610377565b820191906000526020600020905b81548152906001019060200180831161035a57829003601f168201915b505050505081565b6040518060200160405280606081525090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106103d357805160ff1916838001178555610401565b82800160010185558215610401579182015b828111156104005782518255916020019190600101906103e5565b5b50905061040e9190610412565b5090565b61043491905b80821115610430576000816000905550600101610418565b5090565b90565b600081359050610446816107b7565b92915050565b60006020828403121561045e57600080fd5b600061046c84828501610437565b91505092915050565b600061048183836105e9565b905092915050565b61049281610737565b82525050565b60006104a3826106e1565b6104ad8185610704565b9350836020820285016104bf856106d1565b8060005b858110156104fb57848403895281516104dc8582610475565b94506104e7836106f7565b925060208a019950506001810190506104c3565b50829750879550505050505092915050565b6000610518826106ec565b6105228185610715565b9350610532818560208601610773565b61053b816107a6565b840191505092915050565b6000610551826106ec565b61055b8185610726565b935061056b818560208601610773565b610574816107a6565b840191505092915050565b600061058c600d83610726565b91507f6576656e74206d657373616765000000000000000000000000000000000000006000830152602082019050919050565b600060208301600083015184820360008601526105dc828261050d565b9150508091505092915050565b60006020830160008301518482036000860152610606828261050d565b9150508091505092915050565b61061c81610769565b82525050565b60006020820190506106376000830184610489565b92915050565b600060208201905081810360008301526106578184610498565b905092915050565b600060208201905081810360008301526106798184610546565b905092915050565b6000604082019050818103600083015261069a8161057f565b90506106a96020830184610613565b92915050565b600060208201905081810360008301526106c981846105bf565b905092915050565b6000819050602082019050919050565b600081519050919050565b600081519050919050565b6000602082019050919050565b600082825260208201905092915050565b600082825260208201905092915050565b600082825260208201905092915050565b600061074282610749565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b60005b83811015610791578082015181840152602081019050610776565b838111156107a0576000848401525b50505050565b6000601f19601f8301169050919050565b6107c081610769565b81146107cb57600080fd5b5056fe4869207468657265207468697320697320612063616c6c2066726f6d20457468657265756d20776f726c642021204869207468657265207468697320697320612063616c6c2068656c6c6f2066726f6d20457468657265756d21a365627a7a72315820f0f0adb387f0b671d45f88649833b0baa3893eeefb6e443174e800f5a191c7f96c6578706572696d656e74616cf564736f6c63430005110040",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100575760003560e01c806380c9419e1461005c5780638da5cb5b1461008c578063c22fd45e146100aa578063d34e768d146100c8578063e21f37ce146100e6575b600080fd5b6100766004803603610071919081019061044c565b610104565b604051610083919061065f565b60405180910390f35b6100946101c3565b6040516100a19190610622565b60405180910390f35b6100b26101e9565b6040516100bf91906106af565b60405180910390f35b6100d0610229565b6040516100dd919061063d565b60405180910390f35b6100ee6102e1565b6040516100fb919061065f565b60405180910390f35b6003818154811061011157fe5b90600052602060002001600091509050806000018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156101b95780601f1061018e576101008083540402835291602001916101b9565b820191906000526020600020905b81548152906001019060200180831161019c57829003601f168201915b5050505050905081565b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6101f161037f565b6101f961037f565b60405180602001604052806040518060600160405280602d81526020016107cf602d913981525090508091505090565b606061023361037f565b60405180602001604052806040518060600160405280602d81526020016107fc602d9139815250905060038190806001815401808255809150509060018203906000526020600020016000909192909190915060008201518160000190805190602001906102a2929190610392565b505050507f5b43fbf80e6d8b225db427a7bc1ba940132084656811f08ed177826f50333d0d426040516102d59190610681565b60405180910390a15090565b60018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103775780601f1061034c57610100808354040283529160200191610377565b820191906000526020600020905b81548152906001019060200180831161035a57829003601f168201915b505050505081565b6040518060200160405280606081525090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106103d357805160ff1916838001178555610401565b82800160010185558215610401579182015b828111156104005782518255916020019190600101906103e5565b5b50905061040e9190610412565b5090565b61043491905b80821115610430576000816000905550600101610418565b5090565b90565b600081359050610446816107b7565b92915050565b60006020828403121561045e57600080fd5b600061046c84828501610437565b91505092915050565b600061048183836105e9565b905092915050565b61049281610737565b82525050565b60006104a3826106e1565b6104ad8185610704565b9350836020820285016104bf856106d1565b8060005b858110156104fb57848403895281516104dc8582610475565b94506104e7836106f7565b925060208a019950506001810190506104c3565b50829750879550505050505092915050565b6000610518826106ec565b6105228185610715565b9350610532818560208601610773565b61053b816107a6565b840191505092915050565b6000610551826106ec565b61055b8185610726565b935061056b818560208601610773565b610574816107a6565b840191505092915050565b600061058c600d83610726565b91507f6576656e74206d657373616765000000000000000000000000000000000000006000830152602082019050919050565b600060208301600083015184820360008601526105dc828261050d565b9150508091505092915050565b60006020830160008301518482036000860152610606828261050d565b9150508091505092915050565b61061c81610769565b82525050565b60006020820190506106376000830184610489565b92915050565b600060208201905081810360008301526106578184610498565b905092915050565b600060208201905081810360008301526106798184610546565b905092915050565b6000604082019050818103600083015261069a8161057f565b90506106a96020830184610613565b92915050565b600060208201905081810360008301526106c981846105bf565b905092915050565b6000819050602082019050919050565b600081519050919050565b600081519050919050565b6000602082019050919050565b600082825260208201905092915050565b600082825260208201905092915050565b600082825260208201905092915050565b600061074282610749565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b60005b83811015610791578082015181840152602081019050610776565b838111156107a0576000848401525b50505050565b6000601f19601f8301169050919050565b6107c081610769565b81146107cb57600080fd5b5056fe4869207468657265207468697320697320612063616c6c2066726f6d20457468657265756d20776f726c642021204869207468657265207468697320697320612063616c6c2068656c6c6f2066726f6d20457468657265756d21a365627a7a72315820f0f0adb387f0b671d45f88649833b0baa3893eeefb6e443174e800f5a191c7f96c6578706572696d656e74616cf564736f6c63430005110040",
+  "sourceMap": "110:779:0:-;;;241:59;8:9:-1;5:2;;;30:1;27;20:12;5:2;241:59:0;262:10:1;254:5;;:18;;;;;;;;;;;;;;;;;;285:26;;;;;;;;;;;;;;;;;:7;:26;;;;;;;;;;;;:::i;:::-;;282:10:0;274:5;;:18;;;;;;;;;;;;;;;;;;110:779;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;",
+  "deployedSourceMap": "110:779:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;110:779:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;364:24;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;209:20;;;:::i;:::-;;;;;;;;;;;;;;;;397:208;;;:::i;:::-;;;;;;;;;;;;;;;;615:265;;;:::i;:::-;;;;;;;;;;;;;;;;188:21:1;;;:::i;:::-;;;;;;;;;;;;;;;;364:24:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;209:20::-;;;;;;;;;;;;;:::o;397:208::-;441:17;;:::i;:::-;475:26;;:::i;:::-;504:59;;;;;;;;;;;;;;;;;;;;;;;;;;;;475:88;;585:8;578:15;;;397:208;:::o;615:265::-;652:19;687:26;;:::i;:::-;716:59;;;;;;;;;;;;;;;;;;;;;;;;;;;;687:88;;798:4;808:8;798:19;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;798:19:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;836:32;864:3;836:32;;;;;;;;;;;;;;;615:265;;:::o;188:21:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;110:779:0:-;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;5:130:-1:-;;85:6;72:20;63:29;;97:33;124:5;97:33;;;57:78;;;;;142:241;;246:2;234:9;225:7;221:23;217:32;214:2;;;262:1;259;252:12;214:2;297:1;314:53;359:7;350:6;339:9;335:22;314:53;;;304:63;;276:97;208:175;;;;;391:245;;536:94;626:3;618:6;536:94;;;522:108;;515:121;;;;;644:113;727:24;745:5;727:24;;;722:3;715:37;709:48;;;839:1024;;1028:76;1098:5;1028:76;;;1117:108;1218:6;1213:3;1117:108;;;1110:115;;1248:3;1290:4;1282:6;1278:17;1273:3;1269:27;1317:78;1389:5;1317:78;;;1415:7;1443:1;1428:396;1453:6;1450:1;1447:13;1428:396;;;1515:9;1509:4;1505:20;1500:3;1493:33;1560:6;1554:13;1582:108;1685:4;1670:13;1582:108;;;1574:116;;1707:82;1782:6;1707:82;;;1697:92;;1812:4;1807:3;1803:14;1796:21;;1485:339;1475:1;1472;1468:9;1463:14;;1428:396;;;1432:14;1837:4;1830:11;;1854:3;1847:10;;1007:856;;;;;;;;;;1871:319;;1969:35;1998:5;1969:35;;;2016:61;2070:6;2065:3;2016:61;;;2009:68;;2082:52;2127:6;2122:3;2115:4;2108:5;2104:16;2082:52;;;2155:29;2177:6;2155:29;;;2150:3;2146:39;2139:46;;1949:241;;;;;;2197:339;;2305:35;2334:5;2305:35;;;2352:71;2416:6;2411:3;2352:71;;;2345:78;;2428:52;2473:6;2468:3;2461:4;2454:5;2450:16;2428:52;;;2501:29;2523:6;2501:29;;;2496:3;2492:39;2485:46;;2285:251;;;;;;2544:313;;2704:67;2768:2;2763:3;2704:67;;;2697:74;;2804:15;2800:1;2795:3;2791:11;2784:36;2848:2;2843:3;2839:12;2832:19;;2690:167;;;;2934:415;;3087:4;3082:3;3078:14;3170:4;3163:5;3159:16;3153:23;3222:3;3216:4;3212:14;3205:4;3200:3;3196:14;3189:38;3242:69;3306:4;3292:12;3242:69;;;3234:77;;3107:216;3340:4;3333:11;;3060:289;;;;;;3425:401;;3564:4;3559:3;3555:14;3647:4;3640:5;3636:16;3630:23;3699:3;3693:4;3689:14;3682:4;3677:3;3673:14;3666:38;3719:69;3783:4;3769:12;3719:69;;;3711:77;;3584:216;3817:4;3810:11;;3537:289;;;;;;3833:113;3916:24;3934:5;3916:24;;;3911:3;3904:37;3898:48;;;3953:213;;4071:2;4060:9;4056:18;4048:26;;4085:71;4153:1;4142:9;4138:17;4129:6;4085:71;;;4042:124;;;;;4173:449;;4385:2;4374:9;4370:18;4362:26;;4435:9;4429:4;4425:20;4421:1;4410:9;4406:17;4399:47;4460:152;4607:4;4598:6;4460:152;;;4452:160;;4356:266;;;;;4629:293;;4763:2;4752:9;4748:18;4740:26;;4813:9;4807:4;4803:20;4799:1;4788:9;4784:17;4777:47;4838:74;4907:4;4898:6;4838:74;;;4830:82;;4734:188;;;;;4929:518;;5148:2;5137:9;5133:18;5125:26;;5198:9;5192:4;5188:20;5184:1;5173:9;5169:17;5162:47;5223:131;5349:4;5223:131;;;5215:139;;5365:72;5433:2;5422:9;5418:18;5409:6;5365:72;;;5119:328;;;;;5454:365;;5624:2;5613:9;5609:18;5601:26;;5674:9;5668:4;5664:20;5660:1;5649:9;5645:17;5638:47;5699:110;5804:4;5795:6;5699:110;;;5691:118;;5595:224;;;;;5826:173;;5934:3;5926:11;;5972:4;5967:3;5963:14;5955:22;;5920:79;;;;6006:159;;6137:5;6131:12;6121:22;;6102:63;;;;6172:118;;6262:5;6256:12;6246:22;;6227:63;;;;6297:130;;6417:4;6412:3;6408:14;6400:22;;6394:33;;;;6435:200;;6587:6;6582:3;6575:19;6624:4;6619:3;6615:14;6600:29;;6568:67;;;;;6644:153;;6749:6;6744:3;6737:19;6786:4;6781:3;6777:14;6762:29;;6730:67;;;;;6806:163;;6921:6;6916:3;6909:19;6958:4;6953:3;6949:14;6934:29;;6902:67;;;;;6977:91;;7039:24;7057:5;7039:24;;;7028:35;;7022:46;;;;7075:121;;7148:42;7141:5;7137:54;7126:65;;7120:76;;;;7203:72;;7265:5;7254:16;;7248:27;;;;7283:268;7348:1;7355:101;7369:6;7366:1;7363:13;7355:101;;;7445:1;7440:3;7436:11;7430:18;7426:1;7421:3;7417:11;7410:39;7391:2;7388:1;7384:10;7379:15;;7355:101;;;7471:6;7468:1;7465:13;7462:2;;;7536:1;7527:6;7522:3;7518:16;7511:27;7462:2;7332:219;;;;;7559:97;;7647:2;7643:7;7638:2;7631:5;7627:14;7623:28;7613:38;;7607:49;;;;7664:117;7733:24;7751:5;7733:24;;;7726:5;7723:35;7713:2;;7772:1;7769;7762:12;7713:2;7707:74;",
+  "source": "pragma solidity >=0.5.0 <0.6.0;\r\n\r\npragma experimental ABIEncoderV2;\r\n\r\n\r\nimport \"./newContractChild.sol\";\r\n\r\ncontract NewContract is NewContractChild{\r\n\r\n    event etherEvent(string val1,uint val2);\r\n\r\n\r\n    address public owner;\r\n\r\n\r\n     constructor() public{\r\n\r\n        owner = msg.sender;\r\n    }\r\n\r\n    struct testStruct {\r\n        string atrr;\r\n    }\r\n\r\n    testStruct[] public list;\r\n\r\n    function returnStruct() public pure returns(testStruct memory) {\r\n\r\n\r\n        testStruct memory myStrcut = testStruct(\"Hi there this is a call from Ethereum world !\");\r\n\r\n\r\n        return myStrcut;\r\n\r\n\r\n    }\r\n\r\n\r\n    function addToArray() public returns(testStruct[] memory){\r\n\r\n\r\n        testStruct memory myStrcut = testStruct(\" Hi there this is a call hello from Ethereum!\");\r\n\r\n        \r\n        list.push(myStrcut);\r\n\r\n         emit etherEvent(\"event message\", now);\r\n\r\n\r\n    }\r\n\r\n\r\n\r\n}\r\n\r\n\r\n",
+  "sourcePath": "C:\\Users\\aelaal01\\source\\repos\\GRAD-ETH-PROJ\\solidity_contracts\\contracts\\newContract.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/newContract.sol",
+    "exportedSymbols": {
+      "NewContract": [
+        67
+      ]
+    },
+    "id": 68,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.5",
+          ".0",
+          "<",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:31:0"
+      },
+      {
+        "id": 2,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "35:33:0"
+      },
+      {
+        "absolutePath": "project:/contracts/newContractChild.sol",
+        "file": "./newContractChild.sol",
+        "id": 3,
+        "nodeType": "ImportDirective",
+        "scope": 68,
+        "sourceUnit": 95,
+        "src": "74:32:0",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 4,
+              "name": "NewContractChild",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 94,
+              "src": "134:16:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_NewContractChild_$94",
+                "typeString": "contract NewContractChild"
+              }
+            },
+            "id": 5,
+            "nodeType": "InheritanceSpecifier",
+            "src": "134:16:0"
+          }
+        ],
+        "contractDependencies": [
+          94
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 67,
+        "linearizedBaseContracts": [
+          67,
+          94
+        ],
+        "name": "NewContract",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 11,
+            "name": "etherEvent",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 10,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7,
+                  "indexed": false,
+                  "name": "val1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 11,
+                  "src": "176:11:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 6,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "176:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9,
+                  "indexed": false,
+                  "name": "val2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 11,
+                  "src": "188:9:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 8,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "188:4:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "175:23:0"
+            },
+            "src": "159:40:0"
+          },
+          {
+            "constant": false,
+            "id": 13,
+            "name": "owner",
+            "nodeType": "VariableDeclaration",
+            "scope": 67,
+            "src": "209:20:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 12,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "209:7:0",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 21,
+              "nodeType": "Block",
+              "src": "261:39:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 19,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 16,
+                      "name": "owner",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 13,
+                      "src": "274:5:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 17,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 109,
+                        "src": "282:3:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 18,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "282:10:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "src": "274:18:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 20,
+                  "nodeType": "ExpressionStatement",
+                  "src": "274:18:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 22,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "252:2:0"
+            },
+            "returnParameters": {
+              "id": 15,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "261:0:0"
+            },
+            "scope": 67,
+            "src": "241:59:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "NewContract.testStruct",
+            "id": 25,
+            "members": [
+              {
+                "constant": false,
+                "id": 24,
+                "name": "atrr",
+                "nodeType": "VariableDeclaration",
+                "scope": 25,
+                "src": "337:11:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 23,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "337:6:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "testStruct",
+            "nodeType": "StructDefinition",
+            "scope": 67,
+            "src": "308:48:0",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 28,
+            "name": "list",
+            "nodeType": "VariableDeclaration",
+            "scope": 67,
+            "src": "364:24:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_testStruct_$25_storage_$dyn_storage",
+              "typeString": "struct NewContract.testStruct[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 26,
+                "name": "testStruct",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 25,
+                "src": "364:10:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_testStruct_$25_storage_ptr",
+                  "typeString": "struct NewContract.testStruct"
+                }
+              },
+              "id": 27,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "364:12:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_testStruct_$25_storage_$dyn_storage_ptr",
+                "typeString": "struct NewContract.testStruct[]"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 41,
+              "nodeType": "Block",
+              "src": "460:145:0",
+              "statements": [
+                {
+                  "assignments": [
+                    34
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 34,
+                      "name": "myStrcut",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 41,
+                      "src": "475:26:0",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_testStruct_$25_memory_ptr",
+                        "typeString": "struct NewContract.testStruct"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 33,
+                        "name": "testStruct",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 25,
+                        "src": "475:10:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_testStruct_$25_storage_ptr",
+                          "typeString": "struct NewContract.testStruct"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 38,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "4869207468657265207468697320697320612063616c6c2066726f6d20457468657265756d20776f726c642021",
+                        "id": 36,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "515:47:0",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_6dfd704ea1ff995efd3c4e4b387dd74de8ff2f84ea8d737b12437abaff43ca53",
+                          "typeString": "literal_string \"Hi there this is a call from Ethereum world !\""
+                        },
+                        "value": "Hi there this is a call from Ethereum world !"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_stringliteral_6dfd704ea1ff995efd3c4e4b387dd74de8ff2f84ea8d737b12437abaff43ca53",
+                          "typeString": "literal_string \"Hi there this is a call from Ethereum world !\""
+                        }
+                      ],
+                      "id": 35,
+                      "name": "testStruct",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 25,
+                      "src": "504:10:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_struct$_testStruct_$25_storage_ptr_$",
+                        "typeString": "type(struct NewContract.testStruct storage pointer)"
+                      }
+                    },
+                    "id": 37,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "structConstructorCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "504:59:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_testStruct_$25_memory",
+                      "typeString": "struct NewContract.testStruct memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "475:88:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 39,
+                    "name": "myStrcut",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34,
+                    "src": "585:8:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_testStruct_$25_memory_ptr",
+                      "typeString": "struct NewContract.testStruct memory"
+                    }
+                  },
+                  "functionReturnParameters": 32,
+                  "id": 40,
+                  "nodeType": "Return",
+                  "src": "578:15:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 42,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "returnStruct",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 29,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "418:2:0"
+            },
+            "returnParameters": {
+              "id": 32,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 31,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 42,
+                  "src": "441:17:0",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_testStruct_$25_memory_ptr",
+                    "typeString": "struct NewContract.testStruct"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 30,
+                    "name": "testStruct",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 25,
+                    "src": "441:10:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_testStruct_$25_storage_ptr",
+                      "typeString": "struct NewContract.testStruct"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "440:19:0"
+            },
+            "scope": 67,
+            "src": "397:208:0",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 65,
+              "nodeType": "Block",
+              "src": "672:208:0",
+              "statements": [
+                {
+                  "assignments": [
+                    49
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 49,
+                      "name": "myStrcut",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 65,
+                      "src": "687:26:0",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_testStruct_$25_memory_ptr",
+                        "typeString": "struct NewContract.testStruct"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 48,
+                        "name": "testStruct",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 25,
+                        "src": "687:10:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_testStruct_$25_storage_ptr",
+                          "typeString": "struct NewContract.testStruct"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 53,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "204869207468657265207468697320697320612063616c6c2068656c6c6f2066726f6d20457468657265756d21",
+                        "id": 51,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "727:47:0",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_9873d86c8ff7272862cb2af32c0d236e96d157bc36c6dfae124fdd80cf336997",
+                          "typeString": "literal_string \" Hi there this is a call hello from Ethereum!\""
+                        },
+                        "value": " Hi there this is a call hello from Ethereum!"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_stringliteral_9873d86c8ff7272862cb2af32c0d236e96d157bc36c6dfae124fdd80cf336997",
+                          "typeString": "literal_string \" Hi there this is a call hello from Ethereum!\""
+                        }
+                      ],
+                      "id": 50,
+                      "name": "testStruct",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 25,
+                      "src": "716:10:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_struct$_testStruct_$25_storage_ptr_$",
+                        "typeString": "type(struct NewContract.testStruct storage pointer)"
+                      }
+                    },
+                    "id": 52,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "structConstructorCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "716:59:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_testStruct_$25_memory",
+                      "typeString": "struct NewContract.testStruct memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "687:88:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 57,
+                        "name": "myStrcut",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 49,
+                        "src": "808:8:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_testStruct_$25_memory_ptr",
+                          "typeString": "struct NewContract.testStruct memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_testStruct_$25_memory_ptr",
+                          "typeString": "struct NewContract.testStruct memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 54,
+                        "name": "list",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 28,
+                        "src": "798:4:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_testStruct_$25_storage_$dyn_storage",
+                          "typeString": "struct NewContract.testStruct storage ref[] storage ref"
+                        }
+                      },
+                      "id": 56,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "798:9:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_testStruct_$25_storage_$returns$_t_uint256_$",
+                        "typeString": "function (struct NewContract.testStruct storage ref) returns (uint256)"
+                      }
+                    },
+                    "id": 58,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "798:19:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 59,
+                  "nodeType": "ExpressionStatement",
+                  "src": "798:19:0"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "6576656e74206d657373616765",
+                        "id": 61,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "847:15:0",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_f978ebcf0f28c9fa4207fd65b591e4ae03a1bcbf6ba3c69da9d418a0c566ddf4",
+                          "typeString": "literal_string \"event message\""
+                        },
+                        "value": "event message"
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 62,
+                        "name": "now",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 111,
+                        "src": "864:3:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_stringliteral_f978ebcf0f28c9fa4207fd65b591e4ae03a1bcbf6ba3c69da9d418a0c566ddf4",
+                          "typeString": "literal_string \"event message\""
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 60,
+                      "name": "etherEvent",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        11
+                      ],
+                      "referencedDeclaration": 11,
+                      "src": "836:10:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_string_memory_ptr_$_t_uint256_$returns$__$",
+                        "typeString": "function (string memory,uint256)"
+                      }
+                    },
+                    "id": 63,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "836:32:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 64,
+                  "nodeType": "EmitStatement",
+                  "src": "831:37:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 66,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addToArray",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 43,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "634:2:0"
+            },
+            "returnParameters": {
+              "id": 47,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 46,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 66,
+                  "src": "652:19:0",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_testStruct_$25_memory_$dyn_memory_ptr",
+                    "typeString": "struct NewContract.testStruct[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "contractScope": null,
+                      "id": 44,
+                      "name": "testStruct",
+                      "nodeType": "UserDefinedTypeName",
+                      "referencedDeclaration": 25,
+                      "src": "652:10:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_testStruct_$25_storage_ptr",
+                        "typeString": "struct NewContract.testStruct"
+                      }
+                    },
+                    "id": 45,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "652:12:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_testStruct_$25_storage_$dyn_storage_ptr",
+                      "typeString": "struct NewContract.testStruct[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "651:21:0"
+            },
+            "scope": 67,
+            "src": "615:265:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 68,
+        "src": "110:779:0"
+      }
+    ],
+    "src": "0:895:0"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/newContract.sol",
+      "exportedSymbols": {
+        "NewContract": [
+          67
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.5",
+            ".0",
+            "<",
+            "0.6",
+            ".0"
+          ]
+        },
+        "id": 1,
+        "name": "PragmaDirective",
+        "src": "0:31:0"
+      },
+      {
+        "attributes": {
+          "literals": [
+            "experimental",
+            "ABIEncoderV2"
+          ]
+        },
+        "id": 2,
+        "name": "PragmaDirective",
+        "src": "35:33:0"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 95,
+          "absolutePath": "project:/contracts/newContractChild.sol",
+          "file": "./newContractChild.sol",
+          "scope": 68,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 3,
+        "name": "ImportDirective",
+        "src": "74:32:0"
+      },
+      {
+        "attributes": {
+          "contractDependencies": [
+            94
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            67,
+            94
+          ],
+          "name": "NewContract",
+          "scope": 68
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": null
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "NewContractChild",
+                  "referencedDeclaration": 94,
+                  "type": "contract NewContractChild"
+                },
+                "id": 4,
+                "name": "UserDefinedTypeName",
+                "src": "134:16:0"
+              }
+            ],
+            "id": 5,
+            "name": "InheritanceSpecifier",
+            "src": "134:16:0"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "documentation": null,
+              "name": "etherEvent"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "val1",
+                      "scope": 11,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string"
+                        },
+                        "id": 6,
+                        "name": "ElementaryTypeName",
+                        "src": "176:6:0"
+                      }
+                    ],
+                    "id": 7,
+                    "name": "VariableDeclaration",
+                    "src": "176:11:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "val2",
+                      "scope": 11,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 8,
+                        "name": "ElementaryTypeName",
+                        "src": "188:4:0"
+                      }
+                    ],
+                    "id": 9,
+                    "name": "VariableDeclaration",
+                    "src": "188:9:0"
+                  }
+                ],
+                "id": 10,
+                "name": "ParameterList",
+                "src": "175:23:0"
+              }
+            ],
+            "id": 11,
+            "name": "EventDefinition",
+            "src": "159:40:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "owner",
+              "scope": 67,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "address",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "address",
+                  "stateMutability": "nonpayable",
+                  "type": "address"
+                },
+                "id": 12,
+                "name": "ElementaryTypeName",
+                "src": "209:7:0"
+              }
+            ],
+            "id": 13,
+            "name": "VariableDeclaration",
+            "src": "209:20:0"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": true,
+              "kind": "constructor",
+              "modifiers": [
+                null
+              ],
+              "name": "",
+              "scope": 67,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 14,
+                "name": "ParameterList",
+                "src": "252:2:0"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 15,
+                "name": "ParameterList",
+                "src": "261:0:0"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "address"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 13,
+                              "type": "address",
+                              "value": "owner"
+                            },
+                            "id": 16,
+                            "name": "Identifier",
+                            "src": "274:5:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "sender",
+                              "referencedDeclaration": null,
+                              "type": "address payable"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 109,
+                                  "type": "msg",
+                                  "value": "msg"
+                                },
+                                "id": 17,
+                                "name": "Identifier",
+                                "src": "282:3:0"
+                              }
+                            ],
+                            "id": 18,
+                            "name": "MemberAccess",
+                            "src": "282:10:0"
+                          }
+                        ],
+                        "id": 19,
+                        "name": "Assignment",
+                        "src": "274:18:0"
+                      }
+                    ],
+                    "id": 20,
+                    "name": "ExpressionStatement",
+                    "src": "274:18:0"
+                  }
+                ],
+                "id": 21,
+                "name": "Block",
+                "src": "261:39:0"
+              }
+            ],
+            "id": 22,
+            "name": "FunctionDefinition",
+            "src": "241:59:0"
+          },
+          {
+            "attributes": {
+              "canonicalName": "NewContract.testStruct",
+              "name": "testStruct",
+              "scope": 67,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "atrr",
+                  "scope": 25,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string"
+                    },
+                    "id": 23,
+                    "name": "ElementaryTypeName",
+                    "src": "337:6:0"
+                  }
+                ],
+                "id": 24,
+                "name": "VariableDeclaration",
+                "src": "337:11:0"
+              }
+            ],
+            "id": 25,
+            "name": "StructDefinition",
+            "src": "308:48:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "list",
+              "scope": 67,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "struct NewContract.testStruct[]",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "struct NewContract.testStruct[]"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "testStruct",
+                      "referencedDeclaration": 25,
+                      "type": "struct NewContract.testStruct"
+                    },
+                    "id": 26,
+                    "name": "UserDefinedTypeName",
+                    "src": "364:10:0"
+                  }
+                ],
+                "id": 27,
+                "name": "ArrayTypeName",
+                "src": "364:12:0"
+              }
+            ],
+            "id": 28,
+            "name": "VariableDeclaration",
+            "src": "364:24:0"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "returnStruct",
+              "scope": 67,
+              "stateMutability": "pure",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 29,
+                "name": "ParameterList",
+                "src": "418:2:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 42,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "struct NewContract.testStruct",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "testStruct",
+                          "referencedDeclaration": 25,
+                          "type": "struct NewContract.testStruct"
+                        },
+                        "id": 30,
+                        "name": "UserDefinedTypeName",
+                        "src": "441:10:0"
+                      }
+                    ],
+                    "id": 31,
+                    "name": "VariableDeclaration",
+                    "src": "441:17:0"
+                  }
+                ],
+                "id": 32,
+                "name": "ParameterList",
+                "src": "440:19:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        34
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "myStrcut",
+                          "scope": 41,
+                          "stateVariable": false,
+                          "storageLocation": "memory",
+                          "type": "struct NewContract.testStruct",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "contractScope": null,
+                              "name": "testStruct",
+                              "referencedDeclaration": 25,
+                              "type": "struct NewContract.testStruct"
+                            },
+                            "id": 33,
+                            "name": "UserDefinedTypeName",
+                            "src": "475:10:0"
+                          }
+                        ],
+                        "id": 34,
+                        "name": "VariableDeclaration",
+                        "src": "475:26:0"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "isStructConstructorCall": true,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "struct NewContract.testStruct memory",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_stringliteral_6dfd704ea1ff995efd3c4e4b387dd74de8ff2f84ea8d737b12437abaff43ca53",
+                                  "typeString": "literal_string \"Hi there this is a call from Ethereum world !\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 25,
+                              "type": "type(struct NewContract.testStruct storage pointer)",
+                              "value": "testStruct"
+                            },
+                            "id": 35,
+                            "name": "Identifier",
+                            "src": "504:10:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "4869207468657265207468697320697320612063616c6c2066726f6d20457468657265756d20776f726c642021",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "string",
+                              "type": "literal_string \"Hi there this is a call from Ethereum world !\"",
+                              "value": "Hi there this is a call from Ethereum world !"
+                            },
+                            "id": 36,
+                            "name": "Literal",
+                            "src": "515:47:0"
+                          }
+                        ],
+                        "id": 37,
+                        "name": "FunctionCall",
+                        "src": "504:59:0"
+                      }
+                    ],
+                    "id": 38,
+                    "name": "VariableDeclarationStatement",
+                    "src": "475:88:0"
+                  },
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 32
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 34,
+                          "type": "struct NewContract.testStruct memory",
+                          "value": "myStrcut"
+                        },
+                        "id": 39,
+                        "name": "Identifier",
+                        "src": "585:8:0"
+                      }
+                    ],
+                    "id": 40,
+                    "name": "Return",
+                    "src": "578:15:0"
+                  }
+                ],
+                "id": 41,
+                "name": "Block",
+                "src": "460:145:0"
+              }
+            ],
+            "id": 42,
+            "name": "FunctionDefinition",
+            "src": "397:208:0"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "addToArray",
+              "scope": 67,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 43,
+                "name": "ParameterList",
+                "src": "634:2:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 66,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "struct NewContract.testStruct[]",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "length": null,
+                          "type": "struct NewContract.testStruct[]"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "contractScope": null,
+                              "name": "testStruct",
+                              "referencedDeclaration": 25,
+                              "type": "struct NewContract.testStruct"
+                            },
+                            "id": 44,
+                            "name": "UserDefinedTypeName",
+                            "src": "652:10:0"
+                          }
+                        ],
+                        "id": 45,
+                        "name": "ArrayTypeName",
+                        "src": "652:12:0"
+                      }
+                    ],
+                    "id": 46,
+                    "name": "VariableDeclaration",
+                    "src": "652:19:0"
+                  }
+                ],
+                "id": 47,
+                "name": "ParameterList",
+                "src": "651:21:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        49
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "myStrcut",
+                          "scope": 65,
+                          "stateVariable": false,
+                          "storageLocation": "memory",
+                          "type": "struct NewContract.testStruct",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "contractScope": null,
+                              "name": "testStruct",
+                              "referencedDeclaration": 25,
+                              "type": "struct NewContract.testStruct"
+                            },
+                            "id": 48,
+                            "name": "UserDefinedTypeName",
+                            "src": "687:10:0"
+                          }
+                        ],
+                        "id": 49,
+                        "name": "VariableDeclaration",
+                        "src": "687:26:0"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "isStructConstructorCall": true,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "struct NewContract.testStruct memory",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_stringliteral_9873d86c8ff7272862cb2af32c0d236e96d157bc36c6dfae124fdd80cf336997",
+                                  "typeString": "literal_string \" Hi there this is a call hello from Ethereum!\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 25,
+                              "type": "type(struct NewContract.testStruct storage pointer)",
+                              "value": "testStruct"
+                            },
+                            "id": 50,
+                            "name": "Identifier",
+                            "src": "716:10:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "204869207468657265207468697320697320612063616c6c2068656c6c6f2066726f6d20457468657265756d21",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "string",
+                              "type": "literal_string \" Hi there this is a call hello from Ethereum!\"",
+                              "value": " Hi there this is a call hello from Ethereum!"
+                            },
+                            "id": 51,
+                            "name": "Literal",
+                            "src": "727:47:0"
+                          }
+                        ],
+                        "id": 52,
+                        "name": "FunctionCall",
+                        "src": "716:59:0"
+                      }
+                    ],
+                    "id": 53,
+                    "name": "VariableDeclarationStatement",
+                    "src": "687:88:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "uint256",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_struct$_testStruct_$25_memory_ptr",
+                                  "typeString": "struct NewContract.testStruct memory"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "push",
+                              "referencedDeclaration": null,
+                              "type": "function (struct NewContract.testStruct storage ref) returns (uint256)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 28,
+                                  "type": "struct NewContract.testStruct storage ref[] storage ref",
+                                  "value": "list"
+                                },
+                                "id": 54,
+                                "name": "Identifier",
+                                "src": "798:4:0"
+                              }
+                            ],
+                            "id": 56,
+                            "name": "MemberAccess",
+                            "src": "798:9:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 49,
+                              "type": "struct NewContract.testStruct memory",
+                              "value": "myStrcut"
+                            },
+                            "id": 57,
+                            "name": "Identifier",
+                            "src": "808:8:0"
+                          }
+                        ],
+                        "id": 58,
+                        "name": "FunctionCall",
+                        "src": "798:19:0"
+                      }
+                    ],
+                    "id": 59,
+                    "name": "ExpressionStatement",
+                    "src": "798:19:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_stringliteral_f978ebcf0f28c9fa4207fd65b591e4ae03a1bcbf6ba3c69da9d418a0c566ddf4",
+                                  "typeString": "literal_string \"event message\""
+                                },
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                11
+                              ],
+                              "referencedDeclaration": 11,
+                              "type": "function (string memory,uint256)",
+                              "value": "etherEvent"
+                            },
+                            "id": 60,
+                            "name": "Identifier",
+                            "src": "836:10:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "6576656e74206d657373616765",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "string",
+                              "type": "literal_string \"event message\"",
+                              "value": "event message"
+                            },
+                            "id": 61,
+                            "name": "Literal",
+                            "src": "847:15:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 111,
+                              "type": "uint256",
+                              "value": "now"
+                            },
+                            "id": 62,
+                            "name": "Identifier",
+                            "src": "864:3:0"
+                          }
+                        ],
+                        "id": 63,
+                        "name": "FunctionCall",
+                        "src": "836:32:0"
+                      }
+                    ],
+                    "id": 64,
+                    "name": "EmitStatement",
+                    "src": "831:37:0"
+                  }
+                ],
+                "id": 65,
+                "name": "Block",
+                "src": "672:208:0"
+              }
+            ],
+            "id": 66,
+            "name": "FunctionDefinition",
+            "src": "615:265:0"
+          }
+        ],
+        "id": 67,
+        "name": "ContractDefinition",
+        "src": "110:779:0"
+      }
+    ],
+    "id": 68,
+    "name": "SourceUnit",
+    "src": "0:895:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.17+commit.d19bba13.Emscripten.clang"
+  },
+  "networks": {
+    "5": {
+      "events": {},
+      "links": {},
+      "address": "0x3659F9997c3929d4c60211a83E99fdB5A0333f9E",
+      "transactionHash": "0x2c7cc0842d8e826cd39c480e3367981d6316c5747a5a77af2d04de5dbd463358"
+    },
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x8224c74F71D032CbefC138cD33B5B1B40d050912",
+      "transactionHash": "0xd95ef6edd67bc6cde9daa96ebc2b58a716cdbabf72542d5e6885b6973d3bcf42"
+    }
+  },
+  "schemaVersion": "3.4.10",
+  "updatedAt": "2022-10-18T00:04:32.297Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

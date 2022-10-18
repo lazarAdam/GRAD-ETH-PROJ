@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { testABI} from "./abi/test-abi";
-import { testABI2} from "./abi/test-abi-2";
 import Web3 from 'web3';
 import { Contract } from "web3-eth-contract"
 
@@ -28,9 +27,11 @@ export class Web3Service {
 
 
   // private contractAddress = "0x2C1d007186a98c4d93916f64ee15094B4FfF09f4" // testContract
-  private contractAddress = "0x62c107928c4ba250c92b0422ec23b7911b6d615c" // testContract2
+  // private contractAddress = "0x8224c74F71D032CbefC138cD33B5B1B40d050912" // testContract2
+  private contractAddress = "0x3659F9997c3929d4c60211a83E99fdB5A0333f9E" // NewContract deployed to Goerli using Infura 
+
   private contractABI: any = testABI
-  private contractABI2: any = testABI2
+
   // public NFTMartContract:Contract
 
   //@ts-ignore
@@ -79,25 +80,24 @@ export class Web3Service {
   private async initContract() {
 
     //@ts-ignore
-    this.testContract = new this.web3js.eth.Contract(testABI2, this.contractAddress)
+    this.testContract = new this.web3js.eth.Contract(testABI, this.contractAddress)
 
 
 
     // register event handler
 
-    this.testContract.events.etherEvent()
+    // this.testContract.events.etherEvent()
 
-    .on("data",(evtData:any)=>this.ethEvtHandler(evtData))
+    // .on("data",(evtData:any)=>this.ethEvtHandler(evtData))
 
-    .on("error",(error:any)=>console.log(error)
-    )
+    // .on("error",(error:any)=>console.log(error)
+    // )
 
 
 
     console.log('getting data from the blockchain.....');
 
-    let data = await this.testContract.methods.list(0).call()
-    // let data = await this.testContract.methods.returnStruct().call()
+    let data = await this.testContract.methods.owner().call()
 
     console.log(data);
 
