@@ -1,49 +1,56 @@
 <section class="user-dash-sec">
-    <div class="sim-dash">
-      <nav class="sim-dash__nav">
-  
-        <div class="sim-dash__nav__header">
-          <p>NFT MART.</p>
-        </div>
-  
-        <div class="sim-dash__nav__controls" id="dash_btns_panel">
-  
-  
-  
-          <div class="sim-dash__nav__icon" id="show_profile" routerLink="/nft-display">
-            <span></span>
-            <svg>
-              <use xlink:href="assets/img/icons/sprite.svg#icon-store"></use>
-            </svg>
-            <span class="sim-dash__nav__icon-name">Explore NFTs</span>
-  
-          </div>
-  
-          <div class="sim-dash__nav__icon" id="show_address" routerLink="/nft-display" [queryParams]="{userOnly:true}">
-            <span></span>
-            <svg>
-              <use xlink:href="assets/img/icons/sprite.svg#icon-store"></use>
-            </svg>
-            <span class="sim-dash__nav__icon-name">My NFTs</span>
-          </div>
-  
-          <div class="sim-dash__nav__icon"  id="show_orders" routerLink="/nft-sell">
-            <span></span>
-            <svg>
-              <use xlink:href="assets/img/icons/sprite.svg#icon-store"></use>
-            </svg>
-            <span class="sim-dash__nav__icon-name">Create NFTs</span>
-          </div>
-  
-        </div>
-      </nav>
-  
-  
-      <div class="sim-dash__content" id="dash-data-cont">
-  
-        <router-outlet></router-outlet>
-  
+  <div class="sim-dash">
+    <nav class="sim-dash__nav">
+
+      <div class="sim-dash__nav__header">
+        <p>NFT MART.</p>
       </div>
+
+      <div class="sim-dash__nav__controls" id="dash_btns_panel">
+
+
+
+        <div class="sim-dash__nav__icon" id="show_profile" routerLink="/nft-display">
+          <span></span>
+          <svg>
+            <use xlink:href="assets/img/icons/sprite.svg#icon-store"></use>
+          </svg>
+          <span class="sim-dash__nav__icon-name">Explore NFTs</span>
+
+        </div>
+
+        <div class="sim-dash__nav__icon" id="show_address" routerLink="/nft-display" [queryParams]="{userOnly:true}">
+          <span></span>
+          <svg>
+            <use xlink:href="assets/img/icons/sprite.svg#icon-store"></use>
+          </svg>
+          <span class="sim-dash__nav__icon-name">My NFTs</span>
+        </div>
+
+        <div class="sim-dash__nav__icon" id="show_orders" routerLink="/nft-sell">
+          <span></span>
+          <svg>
+            <use xlink:href="assets/img/icons/sprite.svg#icon-store"></use>
+          </svg>
+          <span class="sim-dash__nav__icon-name">Create NFTs</span>
+        </div>
+
+      </div>
+    </nav>
+
+
+    <div class="sim-dash__content" id="dash-data-cont">
+      
+
+      <router-outlet></router-outlet>
+
     </div>
-  </section>
+  </div>
   
+
+
+</section>
+
+
+
+

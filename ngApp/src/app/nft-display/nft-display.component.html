@@ -1,4 +1,6 @@
-<div class="nft-display">
+<div *ngIf="web3Ser.NFTMartContract && !viwOnlyUserNFTs">
+
+  <div class="nft-display">
 
     <div class="nft-display__comntrols">
 
@@ -8,145 +10,101 @@
 
     <div class="nft-display__cards container">
 
-        <div class="row row-cols-3 row-cols-md-3 g-5">
+      <div class="row row-cols-3 row-cols-md-3 g-5">
 
-              
-              
-            <div class="col">
-                <div class="card h-100">
-                  <img src="assets/img/nft-icon.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">NFT-NAME</h5>
-                    <p class="card-text">PRICE</p>
 
-                    <div class="text-center">
-                        <button  class="btn-scalable btn-scalable--colorful btn-sm text-center"
-                         routerLink="/nft-details"
 
-                         [queryParams]="{nft_ID:0001}"
-                         
-                         >view</button>
-                    </div>
-                    
-                  </div>
-                </div>
+        <div class="col" *ngFor="let nft of NFTser.NFTsList">
+          <div class="card h-100">
+            <img src="assets/img/nft-icon.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{nft.NFTName}}</h5>
+              <h4 class="card-text">price: </h4>
+              <p class="card-text">{{nft.NFTValue}} Ether</p>
+
+              <h5 class="card-text">owner address: </h5>
+              <p class="card-text">{{nft.NFTownerAddress.toUpperCase()}}</p>
+
+
+              <div class="text-center">
+                <button class="btn-scalable btn-scalable--colorful btn-sm text-center" routerLink="/nft-details"
+                  [queryParams]="{nft_ID:nft.NFTid}">view</button>
               </div>
 
-
-              <div class="col">
-                <div class="card h-100">
-                  <img src="assets/img/nft-icon.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">NFT-NAME</h5>
-                    <p class="card-text">PRICE</p>
-
-                    <div class="text-center">
-                        <button  class="btn-scalable btn-scalable--colorful btn-sm text-center"
-                         routerLink="/nft-details"
-
-                         [queryParams]="{nft_ID:0001}"
-                         
-                         >view</button>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="col">
-                <div class="card h-100">
-                  <img src="assets/img/nft-icon.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">NFT-NAME</h5>
-                    <p class="card-text">PRICE</p>
-
-                    <div class="text-center">
-                        <button  class="btn-scalable btn-scalable--colorful btn-sm text-center"
-                         routerLink="/nft-details"
-
-                         [queryParams]="{nft_ID:0001}"
-                         
-                         >view</button>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="col">
-                <div class="card h-100">
-                  <img src="assets/img/nft-icon.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">NFT-NAME</h5>
-                    <p class="card-text">PRICE</p>
-
-                    <div class="text-center">
-                        <button  class="btn-scalable btn-scalable--colorful btn-sm text-center"
-                         routerLink="/nft-details"
-
-                         [queryParams]="{nft_ID:0001}"
-                         
-                         >view</button>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="col">
-                <div class="card h-100">
-                  <img src="assets/img/nft-icon.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">NFT-NAME</h5>
-                    <p class="card-text">PRICE</p>
-
-                    <div class="text-center">
-                        <button  class="btn-scalable btn-scalable--colorful btn-sm text-center"
-                         routerLink="/nft-details"
-
-                         [queryParams]="{nft_ID:0001}"
-                         
-                         >view</button>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
-
-
-
-              <div class="col">
-                <div class="card h-100">
-                  <img src="assets/img/nft-icon.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">NFT-NAME</h5>
-                    <p class="card-text">PRICE</p>
-
-                    <div class="text-center">
-                        <button  class="btn-scalable btn-scalable--colorful btn-sm text-center"
-                         routerLink="/nft-details"
-
-                         [queryParams]="{nft_ID:0001}"
-                         
-                         >view</button>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
+            </div>
           </div>
+        </div>
+
+      </div>
 
     </div>
 
 
-    <div class="container d-flex justify-content-between pt-5">
+    <!-- <div class="container d-flex justify-content-between pt-5">
 
-        <button class="btn-scalable btn-scalable--grey-light"> &larr;</button>
-        <button class="btn-scalable btn-scalable--grey-light">&rarr;</button>
+      <button class="btn-scalable btn-scalable--grey-light"> &larr;</button>
+      <button class="btn-scalable btn-scalable--grey-light">&rarr;</button>
+
+    </div> -->
+
+  </div>
+
+</div>
+
+<div *ngIf="viwOnlyUserNFTs">
+
+  <div class="nft-display">
+
+    <div class="nft-display__comntrols">
+
 
     </div>
+
+
+    <div class="nft-display__cards container">
+
+      <div class="row row-cols-3 row-cols-md-3 g-5">
+
+
+
+        <div class="col" *ngFor="let nft of userOnlyNFTs">
+          <div class="card h-100">
+            <img src="assets/img/nft-icon.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{nft.NFTName}}</h5>
+              <h4 class="card-text">price: </h4>
+              <p class="card-text">{{nft.NFTValue}} Ether</p>
+
+              <h5 class="card-text">owner address: </h5>
+              <p class="card-text">{{nft.NFTownerAddress.toUpperCase()}}</p>
+
+              <div class="text-center">
+                <button class="btn-scalable btn-scalable--colorful btn-sm text-center" routerLink="/nft-details"
+                  [queryParams]="{nft_ID:nft.NFTid}">view</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- <div class="container d-flex justify-content-between pt-5">
+
+      <button class="btn-scalable btn-scalable--grey-light"> &larr;</button>
+      <button class="btn-scalable btn-scalable--grey-light">&rarr;</button>
+
+    </div> -->
+
+  </div>
+
+</div>
+
+<div *ngIf="!web3Ser.NFTMartContract">
+
+  <p>Please install or login to Metamask</p>
 
 </div>

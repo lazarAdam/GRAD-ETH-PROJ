@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
+import { NFTService } from './nft.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'grandsaahara control center';
-}
+export class AppComponent  {title = 'NFT MART';}
