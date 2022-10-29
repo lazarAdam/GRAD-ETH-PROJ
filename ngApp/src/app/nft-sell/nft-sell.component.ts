@@ -19,6 +19,10 @@ export class NftSellComponent implements OnInit, AfterViewInit {
 
   public creatorNameInp: string | undefined
 
+  public isNFTMinted: boolean = false
+
+  public UserName: string | undefined
+
 
 
   // private modal: bootstrap.Modal | undefined
@@ -40,6 +44,14 @@ export class NftSellComponent implements OnInit, AfterViewInit {
   async ngOnInit(): Promise<void> {
 
     await this.NFTser.checkAndInitMetamaskAndContract()
+
+
+    let answer = await this.NFTser.getUserData()
+
+    if(answer["userName"]){
+
+      this.UserName = answer["userName"]
+    }
   }
 
 
@@ -54,8 +66,13 @@ export class NftSellComponent implements OnInit, AfterViewInit {
     if (this.inpNFTCat && this.inpNFTtitle && this.inpNFTvalue && this.inpNFTuri) {
 
 
-
+      
       try {
+
+        if(this.UserName){
+
+          this.creatorNameInp = this.UserName
+        }
 
         await this.NFTser.mintNewNFT(
           this.inpNFTtitle,
@@ -66,6 +83,8 @@ export class NftSellComponent implements OnInit, AfterViewInit {
         )
 
         console.log("New nft created");
+
+        this.isNFTMinted = true
 
       } catch (error: any) {
 
@@ -84,6 +103,13 @@ export class NftSellComponent implements OnInit, AfterViewInit {
     }
 
 
+
+  }
+
+
+  public NFTmintedStatusReset(){
+
+      this.isNFTMinted= false
 
   }
 

@@ -1,4 +1,4 @@
-export const testABI =[
+export const testABI = [
   {
     "anonymous": false,
     "inputs": [

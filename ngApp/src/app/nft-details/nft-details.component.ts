@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NFTObject, NFTService } from '../nft.service';
+import { Web3Service } from '../web3.service';
 
 @Component({
   selector: 'app-nft-details',
@@ -10,8 +11,11 @@ export class NftDetailsComponent implements OnInit {
 
 
   public targetNFT:NFTObject | undefined
+  // public isOwnedByCurrentUser = false
 
-  constructor(private route: ActivatedRoute, private NFTser: NFTService) { }
+  public giftedUserAddress : string | undefined
+
+  constructor(private route: ActivatedRoute, private NFTser: NFTService, private web3Service:Web3Service) { }
 
   async ngOnInit(): Promise<void> {
 
@@ -25,6 +29,14 @@ export class NftDetailsComponent implements OnInit {
 
     this.targetNFT = this.NFTser.getNFTbyId(NFTid)
 
+
+    // if (this.targetNFT?.NFTownerAddress === this.web3Service.metaMaskUserAccount){
+
+    //   this.isOwnedByCurrentUser = true
+
+
+
+    // }
 
   }
 
@@ -40,5 +52,15 @@ export class NftDetailsComponent implements OnInit {
     )
 
   }
+
+  // public async GiftToUser(){
+
+  //   if(this.giftedUserAddress){
+
+
+  //     await this.NFTser.giftToUser(this.giftedUserAddress,this.targetNFT?.NFTid)
+  //   }
+
+  // }
 
 }

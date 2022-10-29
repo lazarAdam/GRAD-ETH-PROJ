@@ -5,19 +5,24 @@
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
     Create an NFT
   </button>
+
+
   <!-- The Modal -->
   <div class="modal fade" id="myModal" data-bs-backdrop="static">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
 
         <!-- Modal Header -->
+
+        <h3 *ngIf="UserName" class="text-center"> Welcome back {{UserName}}</h3>
         <div class="modal-header ">
-          <h4 class="modal-title">Create your NFT Here.</h4>
+          
+          <p class="modal-title">Create your NFT Here.</p>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
 
         <!-- Modal body -->
-        <div class="modal-body mt-5">
+        <div class="modal-body mt-5" *ngIf="!isNFTMinted">
 
           <div class="input-group mb-5">
             <span class="input-group-text" id="basic-addon1">NFT title</span>
@@ -28,41 +33,53 @@
             <span class="input-group-text" id="basic-addon1">Category</span>
             <select class="form-select" [(ngModel)]="inpNFTCat">
               <option value="Digital Art" selected>Digital Art</option>
-              <option >Photography</option>
-              <option >Other</option>
+              <option>Photography</option>
+              <option>Other</option>
 
             </select>
           </div>
+          <div class="input-group mb-5">
+            <span class="input-group-text" id="basic-addon1">Value in Ether</span>
+            <input type="text" class="form-control" placeholder="1.2" [(ngModel)]="inpNFTvalue">
+          </div>
 
-        <div class="input-group mb-5">
-          <span class="input-group-text" id="basic-addon1">Value in Ether</span>
-          <input type="text" class="form-control" placeholder="1.2" [(ngModel)]="inpNFTvalue">
+          <div class="input-group mb-5">
+            <span class="input-group-text" id="basic-addon1">Off chain NFT URI</span>
+            <input type="text" class="form-control" placeholder="https://nft-image/1.jpg" [(ngModel)]="inpNFTuri">
+          </div>
+
+
+          <div class="input-group mb-5" *ngIf="!UserName">
+            <span class="input-group-text" id="basic-addon1">creator name</span>
+            <input type="text" class="form-control" placeholder="name" [(ngModel)]="creatorNameInp">
+          </div>
+
+          <div class="text-center">
+            <button (click)="createNFT()" class="btn btn-warning btn-lg"> Create now !</button>
+          </div>
         </div>
 
-        <div class="input-group mb-5">
-          <span class="input-group-text" id="basic-addon1">Off chain NFT URI</span>
-          <input type="text" class="form-control" placeholder="https://nft-image/1.jpg" [(ngModel)]="inpNFTuri">
+
+        <div class="modal-body mt-5" *ngIf="isNFTMinted">
+
+          <div class="input-group mb-5">
+            <p> Yay!! Your NFT named {{NFTser.NFTCreatedEvent.returnValues.name}} was created successfully</p>
+            
+
+          </div>
         </div>
 
 
-        <div class="input-group mb-5">
-          <span class="input-group-text" id="basic-addon1">creator name</span>
-          <input type="text" class="form-control" placeholder="name" [(ngModel)]="creatorNameInp">
+
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="NFTmintedStatusReset()">Close</button>
         </div>
 
       </div>
-
-
-      <button (click)="createNFT()" class="btn btn-warning btn-lg"> Create now !</button>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-      </div>
-
     </div>
   </div>
-</div>
 
 
 </div>

@@ -1,6 +1,5 @@
-import { IfStmt } from '@angular/compiler';
 import { Injectable, OnInit } from '@angular/core';
-import { ExecException } from 'child_process';
+import { Router } from '@angular/router';
 import { Web3Service } from './web3.service';
 
 
@@ -25,9 +24,12 @@ export class NFTService {
   public isNewUser: boolean = false
   public NFTsList: NFTObject[]
 
+  public UserCreatedEvent: any
+  public NFTCreatedEvent: any
+
   array: NFTObject[] = []
 
-  constructor(private web3Service: Web3Service) {
+  constructor(private web3Service: Web3Service, private router: Router) {
 
     this.NFTsList = []
 
@@ -36,10 +38,10 @@ export class NFTService {
 
   /**
    * 
-   // check if metaMaskUserAccount is defined if so that means initMetamaskAndContract() has been 
-    // called before. Hence, no need to call initMetaMaskUser initContract again since the web3Service
-    // will have a single instance during the lifecycle of the application. metaMaskUserAccount and NFTMartContract`
-    //will be defined even when different  components that are using NFTsertive get reloaded.
+   * check if metaMaskUserAccount is defined if so that means initMetamaskAndContract() has been 
+   * called before. Hence, no need to call initMetaMaskUser initContract again since the web3Service
+   * will have a single instance during the lifecycle of the application. metaMaskUserAccount and NFTMartContract`
+   * will be defined even when different  components that are using NFTsertive get reloaded.
    */
   public async checkAndInitMetamaskAndContract() {
 
@@ -48,6 +50,7 @@ export class NFTService {
       await this.web3Service.initMetaMaskUser()
 
       await this.web3Service.initContract()
+
     }
   }
 
@@ -66,14 +69,42 @@ export class NFTService {
       creatorName
 
     ).send(
-      { from: this.web3Service.metaMaskUserAccount }
-    )
+      { from: this.web3Service.metaMaskUserAccount, gas: "1000000" }
 
-    console.log(result);
+    ).on("receipt", (data: any) => {
+
+
+      console.log(data);
+
+
+      this.NFTCreatedEvent = data.events.NewNFTCreated
+
+      console.log(this.NFTCreatedEvent);
+
+
+
+
+
+    })
+      .on("error", (error: any) => {
+
+        console.log(error);
+
+      })
+
+
+
+
+
 
   }
 
-  public async BuyNFT() {
+  public async getUserData(userAddress: string = this.web3Service.metaMaskUserAccount) {
+
+    let result = await this.web3Service.NFTMartContract.methods.users(userAddress).call()
+
+
+    return result
 
 
   }
@@ -93,6 +124,9 @@ export class NFTService {
 
       const ownerAddress = await this.getNFTownerAddress(rawNFToBJ["ID"])
 
+      const ownerInfo = await this.getUserData(ownerAddress)
+
+
 
       let NextNFT: NFTObject = {
         NFTid: parseInt(rawNFToBJ["ID"]),
@@ -100,7 +134,7 @@ export class NFTService {
         NFTValue: this.web3Service.web3js?.utils.fromWei(rawNFToBJ["value"], "ether"),
         NFTCategory: rawNFToBJ["NftCategory"],
         NFTuRI: rawNFToBJ["artFileUrl"],
-        NFTownerName: "TBD",
+        NFTownerName: ownerInfo["userName"],
         NFTownerAddress: ownerAddress.toLowerCase()
 
       }
@@ -108,9 +142,6 @@ export class NFTService {
       this.NFTsList.push(NextNFT)
 
     }
-
-    console.log(this.NFTsList);
-
 
 
 
@@ -187,10 +218,21 @@ export class NFTService {
 
       })
 
+  }
+
+  public async giftToUser(userAddress: string, NFTid: number|undefined) {
+
+    let result = await this.web3Service.NFTMartContract.methods.approve(userAddress, NFTid).send(
+      { from: this.web3Service.metaMaskUserAccount }
+    )
 
     console.log(result);
+    
 
 
   }
+
+
+
 }
 

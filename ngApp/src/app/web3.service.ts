@@ -18,7 +18,7 @@ export class Web3Service {
   public web3js: Web3 | undefined
 
   // private contractAddress = "0x3659F9997c3929d4c60211a83E99fdB5A0333f9E" // NewContract deployed to Goerli using Infura
-  private NFTMartAddress = "0x8224c74F71D032CbefC138cD33B5B1B40d050912" // NFTMart address on local node by truffle
+  private NFTMartAddress = "0xE9c16cB5Aa700494E5b21BAE7DbdAD448077ff32" // NFTMart address on local node by truffle
   private NFTMartContractABI: any = testABI
 
   public metaMaskUserAccount: any | undefined
@@ -61,21 +61,9 @@ export class Web3Service {
   public async initContract() {
 
 
-
-
     //@ts-ignore
     this.NFTMartContract = new this.web3js.eth.Contract(this.NFTMartContractABI, this.NFTMartAddress)
 
-
-
-    // register event handler
-
-    // this.testContract.events.etherEvent()
-
-    // .on("data",(evtData:any)=>this.ethEvtHandler(evtData))
-
-    // .on("error",(error:any)=>console.log(error)
-    // )
 
     console.log('getting data from the blockchain.....');
 

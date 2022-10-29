@@ -7,7 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NftDisplayComponent } from './nft-display/nft-display.component';
 import { NftDetailsComponent } from './nft-details/nft-details.component';
 import { NftSellComponent } from './nft-sell/nft-sell.component';
-import { NftBuyComponent } from './nft-buy/nft-buy.component';
+import { NftBuyConfirmComponent } from './nft-buy/nft-buy.component';
 
 
 
@@ -18,7 +18,7 @@ import { NftBuyComponent } from './nft-buy/nft-buy.component';
     NftDisplayComponent,
     NftDetailsComponent,
     NftSellComponent,
-    NftBuyComponent,
+    NftBuyConfirmComponent,
 
 
   ],
