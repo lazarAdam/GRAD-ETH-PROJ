@@ -1,5 +1,9 @@
 pragma solidity >=0.5.0 <0.6.0;
 
+/**
+  This is an interface smart contract providing the standard implementation of ERC721 tokens 
+  it includes the four main methods for working with non-fungible tokens.
+ */
 contract ERC721 {
   event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);
   event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);

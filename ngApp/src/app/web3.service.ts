@@ -21,6 +21,7 @@ export class Web3Service {
   private NFTMartAddress = "0xE9c16cB5Aa700494E5b21BAE7DbdAD448077ff32" // NFTMart address on local node by truffle
   private NFTMartContractABI: any = testABI
 
+  // holds the address of the current metamask user account
   public metaMaskUserAccount: any | undefined
   //@ts-ignore
   public NFTMartContract: Contract
@@ -29,10 +30,11 @@ export class Web3Service {
 
   constructor(private winRef: WindowRef) { }
 
-
+  /**
+   * 
+   * This function works as an initializer for the currently active Metamask account
+   */
   public async initMetaMaskUser() {
-
-
 
     // initialize Web3.js using MetaMask as a provider by extracting  ethereum object from the window object
     // MetaMask extension will inject an object named ethereum into the window object 
@@ -44,7 +46,7 @@ export class Web3Service {
       console.log('MetaMask was found!');
 
       const accounts = await this.ethereumMetaMaskObj.request({ method: 'eth_requestAccounts' });
-
+      // set the current active account
       this.metaMaskUserAccount = accounts[0];
 
       console.log(this.metaMaskUserAccount);
@@ -58,6 +60,9 @@ export class Web3Service {
 
   }
 
+  /**
+   * Function that initializes the smart contract by passing it to web3.js along with its ABI
+   */
   public async initContract() {
 
 
