@@ -7,7 +7,7 @@ import "./ownable.sol";
 /**
    Smart contract to hold the user data also imports the Ownable and NFT smart contracts
  */
-contract User is NFT, Ownable{
+contract User is NFT{
 
     // event for new created users
     event UserCreatedStatus(string stateMsg,bool result);
@@ -24,6 +24,8 @@ contract User is NFT, Ownable{
 
     // mapping to store a User object for the user that created it.
     mapping(address => UserData) public users;
+
+
 
     /**
      *
