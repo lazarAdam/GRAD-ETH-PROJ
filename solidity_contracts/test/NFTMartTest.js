@@ -196,4 +196,3 @@ contract("User", (accounts) => {
 })
 
 
-//adadasda
