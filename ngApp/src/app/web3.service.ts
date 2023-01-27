@@ -18,7 +18,8 @@ export class Web3Service {
   public web3js: Web3 | undefined
 
   // private contractAddress = "0x3659F9997c3929d4c60211a83E99fdB5A0333f9E" // NewContract deployed to Goerli using Infura
-  private NFTMartAddress = "0xE9c16cB5Aa700494E5b21BAE7DbdAD448077ff32" // NFTMart address on local node by truffle
+  // private NFTMartAddress = "0x2e3A4a29b8D5DFE0Fa49680c2F9c3b968D09F063" // NFTMart address on local node by truffle
+  private NFTMartAddress = "0xbaeF4091F3d8126C7Eb73F03FB5B911aa86Cb6Aa" // NFTMart address on local node by truffle
   private NFTMartContractABI: any = testABI
 
   // holds the address of the current metamask user account

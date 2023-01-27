@@ -34,6 +34,10 @@
             </div>
           </div>
         </div>
+        <div *ngIf="NFTser.NFTsList.length == 0">
+          <h1>No NFTs in the store yet...</h1>
+          
+        </div>
 
       </div>
 
@@ -87,6 +91,10 @@
           </div>
         </div>
 
+        <div *ngIf="userOnlyNFTs.length == 0">
+          <h1>You don't have any NFT's...</h1>
+        </div>
+
       </div>
 
     </div>
@@ -108,3 +116,4 @@
   <p>Please install or login to Metamask</p>
 
 </div>
+

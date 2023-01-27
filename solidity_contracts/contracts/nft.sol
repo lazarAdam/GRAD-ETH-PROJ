@@ -25,6 +25,7 @@ contract NFT is ERC721 {
 
     mapping(uint256 => address) public NFTOwner; // Mapping of NFT id to  an address of an EOA account(current owner)
     mapping(address => uint256) public ownerNFTCount; // the number of NFT that an user has minted
+    mapping(uint256 => address) public NFTApprovals; // mapping for approved user to claim an NFT
     Nft[] public NFTsList; // Array in storage that holds objects of Nft and addressed using the the NFT id as an index
 
 
@@ -33,10 +34,24 @@ contract NFT is ERC721 {
 
     // A modifier method used by other methods that would like to restrict access to executing the method to only
     // the owner of an NFT. Will come handy with the approve method
-    // modifier onlyOwnerOf(uint256 _NFTid) {
-    //     require(msg.sender == NFTOwner[_NFTid], "You are not the owner !");
-    //     _;
-    // }
+    modifier onlyOwnerOf(uint256 _NFTid) {
+        require(msg.sender == NFTOwner[_NFTid], "You are not the owner !");
+        _;
+    }
+
+    /**
+
+     * @dev method that allows only the owner of an NFT using the modifier onlyOwnerOf to approve an other user
+     * to transfer ownership 
+     */
+    function approve(address _approved, uint256 _tokenId)
+        external
+        payable
+        onlyOwnerOf(_tokenId)
+    {
+        NFTApprovals[_tokenId] = _approved;
+        emit Approval(msg.sender, _approved, _tokenId);
+    }
 
     /**
 
